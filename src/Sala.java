@@ -20,6 +20,11 @@ public class Sala extends Carregador{
 	public Porta portaA;
 	public Porta portaB;
 	public Porta portaC;
+	public Sala(){
+		portaA = new Porta();
+		portaB = new Porta();
+		portaC = new Porta();
+	}
 	public void geraItens(){
 		Random gerador = new Random();
 		int valor = gerador.nextInt(1000);
@@ -39,6 +44,6 @@ public class Sala extends Carregador{
 							".\n MACHADO:\t"+getMachado()+
 							".\n POCOES:\t"+getPocoes()+
 							".\n CHAVE:\t\t"+getChaves()+
-							".\n TROLL: \t\t"+getContemTroll());
+							".\n TROLL: \t"+getContemTroll());
 	}
 }

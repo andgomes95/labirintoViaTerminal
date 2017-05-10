@@ -33,7 +33,7 @@ public class Movimento extends Carregador{
 		
 	}
 
-	public void moveToMachado(){
+	public void moveToAndPickUpMachado(){
 		
 	}
 	public void pickUpMachado(){
