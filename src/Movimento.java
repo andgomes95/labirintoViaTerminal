@@ -1,34 +1,48 @@
 
 public class Movimento extends Carregador{
-	public Movimento(){
-		//randomizar
-	}
 	protected int salaId;
-	public void moveToDoor(char porta){
+	//VERIFICAR FUNÇÃO
+	public void moveToDoor(Sala sala,char id){
+		switch(id){
+		case 'a':
+			if((sala.portaA.getSalaId() != 0)&&(sala.portaA.isPortaTrancada())){
+				salaId = sala.portaA.getSalaId();
+				
+			}else if(sala.portaA.isPortaTrancada()){
+				System.out.println("A porta está trancada.");
+			}else{
+				System.out.println("Sala inexistente.");
+			}
+		case 'b':
+			if((sala.portaB.getSalaId() != 0)&&(sala.portaB.isPortaTrancada())){
+				salaId = sala.portaB.getSalaId();
+			}else if(sala.portaB.isPortaTrancada()){
+				System.out.println("A porta está trancada.");
+			}else{
+				System.out.println("Sala inexistente.");
+			}
+		case 'c':
+			if((sala.portaC.getSalaId() != 0)&&(sala.portaC.isPortaTrancada())){
+				salaId = sala.portaC.getSalaId();
+			}else if(sala.portaC.isPortaTrancada()){
+				System.out.println("A porta está trancada.");
+			}else{
+				System.out.println("Sala inexistente.");
+			}
+		}
 		
 	}
+
 	public void moveToMachado(){
 		
 	}
 	public void pickUpMachado(){
-		if (this.capacidadeMochila()){
-			this.machado = this.machado+1;
-		}
+		
 	}
 	public void dropMachado(){
-		this.machado = this.machado-1;
+		
 	}
 	public void throwMachado(){
 		
 	}
-	
-	public boolean capacidadeMochila(){
-		int total = this.chaves + this.machado + this.pocoes;
-		if (total == 5){
-			return false;
-		} else {
-			return true;
-		}
-	}
-	
 }

@@ -6,7 +6,7 @@ public class Player extends Movimento{
 		
 	}
 	public void pickUpDiamante(int diamante){
-		this.diamante = diamante;
+		
 	}
 	
 	public void moveToChave(){
@@ -42,5 +42,13 @@ public class Player extends Movimento{
 		
 	}
 	
+	public boolean capacidadeMochila(){
+		int total = this.chaves + this.machado + this.pocoes;
+		if (total == 5){
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
 }
