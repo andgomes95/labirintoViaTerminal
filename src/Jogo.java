@@ -21,11 +21,11 @@ public class Jogo{
 		Player player = new Player();
 		Mapa mapa = new Mapa(20);
 		String[] leitura = new String[3];
-		int a = 0;
 		leitura = leitura();
 		while (player.isFim()==false){
-			if (leitura[0] == "moveTo"){
-				if(leitura[2]!=null){
+			if (leitura[0].equals("moveTo")){
+				if(leitura[2].isEmpty()){
+					System.out.println("here");
 					switch(leitura[1]){
 					case "a":
 						player.moveToDoor(mapa.getSalas(),'a');
@@ -37,7 +37,7 @@ public class Jogo{
 						player.moveToDoor(mapa.getSalas(),'c');
 						break;
 					default:
-						System.out.println("Porta Inexistente");
+						System.out.println("Porta Inexistente.");
 						break;
 					}
 					leitura = leitura();
@@ -45,35 +45,35 @@ public class Jogo{
 					switch(leitura[1]){
 					case "gold":
 						leitura = leitura();
-						if (leitura[0]=="pickUp"){
-							if(leitura[1]=="gold"){
-								player.pickUpOuro();
+						if (leitura[0].equals("pickUp")){
+							if(leitura[1].equals("gold")){
+								player.pickUpOuro(0);
 							}
 						}
 						leitura = leitura();
 						break;
 					case "diamond":
 						leitura = leitura();
-						if (leitura[0]=="pickUp"){
-							if(leitura[1]=="diamond"){
-								player.pickUpDiamante();
+						if (leitura[0].equals("pickUp")){
+							if(leitura[1].equals("diamond")){
+								player.pickUpDiamante(0);
 							}
 						}
 						leitura = leitura();
 						break;
 					case "axe":
 						leitura = leitura();
-						if (leitura[0]=="pickUp"){
-							if(leitura[1]=="axe"){
-								player.pickUpMachado();
+						if (leitura[0].equals("pickUp")){
+							if(leitura[1].equals("axe")){
+								player.pickUpMachado(mapa.getSalas(),player.getSalaId());
 							}
 						}
 						leitura = leitura();
 						break;
 					case "potion":
 						leitura = leitura();
-						if (leitura[0]=="pickUp"){
-							if(leitura[1]=="potion"){
+						if (leitura[0].equals("pickUp")){
+							if(leitura[1].equals("potion")){
 								player.pickUpPocoes();
 							}
 						}
@@ -81,8 +81,8 @@ public class Jogo{
 						break;
 					case "key":
 						leitura = leitura();
-						if (leitura[0]=="pickUp"){
-							if(leitura[1]=="key"){
+						if (leitura[0].equals("pickUp")){
+							if(leitura[1].equals("key")){
 								player.pickUpChave();
 							}
 						}
@@ -93,6 +93,19 @@ public class Jogo{
 						leitura = leitura();
 						break;
 					}
+				}
+			}else if(leitura[0].equals("drop")){
+				//IMPLEMENTAR
+				leitura = leitura();
+			}else if (leitura[0].equals("throwAxe")){
+				//IMPLEMENTAR
+				leitura = leitura();
+			}else if (leitura[0].equals("view")){
+				//IMPLEMENTAR
+				leitura = leitura();
+			}else{
+				System.out.println("Instrução não conhecida.");
+				leitura = leitura();
 			}
 		}
 	}

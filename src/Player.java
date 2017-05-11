@@ -8,7 +8,11 @@ public class Player extends Movimento{
 		salas.get(this.getSalaId()).setContemPlayer(true);
 		
 	}
-	
+	public void pickUpMachado(ArrayList<Sala> salas,int id){
+		if(capacidadeMochila()==true){
+			super.pickUpMachado(salas, id);
+		}
+	}
 	public void pickUpOuro(int ouro){
 		
 	}
