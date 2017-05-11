@@ -15,7 +15,6 @@ public class Movimento extends Carregador{
 	public void setFim(boolean fim) {
 		this.fim = fim;
 	}
-	//VERIFICAR FUNÇÃO
 	public void moveToDoor(ArrayList<Sala> salas,char id){
 		System.out.println(id);
 		switch(id){
@@ -52,7 +51,8 @@ public class Movimento extends Carregador{
 			System.out.println("Sala inexistente");
 		}
 	}
-	public void moveToAndPickUpMachado(){
+	
+	public void PickUpMachado(){
 		
 	}
 	public void dropMachado(){
