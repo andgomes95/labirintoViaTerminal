@@ -9,7 +9,7 @@ public class Jogo{
 	}
 	public static String[] leitura(){
 		String leituraTerminal = new String();
-		String instrucoes[] = new String[2];
+		String instrucoes[] = new String[3];
 		Scanner ler = new Scanner(System.in);
 		System.out.println("Player >");
 		leituraTerminal = ler.nextLine();
@@ -23,8 +23,9 @@ public class Jogo{
 		String[] leitura = new String[3];
 		leitura = leitura();
 		while (player.isFim()==false){
+			player.viewPlayer();
 			if (leitura[0].equals("moveTo")){
-				if(leitura[2].isEmpty()){
+				if(leitura[1].equals("a")||leitura[1].equals("b")||leitura[1].equals("c")){
 					System.out.println("here");
 					switch(leitura[1]){
 					case "a":
@@ -62,6 +63,7 @@ public class Jogo{
 						leitura = leitura();
 						break;
 					case "axe":
+						System.out.println("here");
 						leitura = leitura();
 						if (leitura[0].equals("pickUp")){
 							if(leitura[1].equals("axe")){
@@ -107,6 +109,7 @@ public class Jogo{
 				System.out.println("Instrução não conhecida.");
 				leitura = leitura();
 			}
+			
 		}
 	}
 } 

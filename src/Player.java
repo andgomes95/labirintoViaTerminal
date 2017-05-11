@@ -61,5 +61,13 @@ public class Player extends Movimento{
 			return true;
 		}
 	}
-	
+	public void viewPlayer(){
+		System.out.println("O personagem tem: \n"
+							+ "\n OURO:\t\t"+getOuro()+
+							".\n DIAMANTE:\t"+getDiamante()+
+							".\n MACHADO:\t"+getMachado()+
+							".\n POCOES:\t"+getPocoes()+
+							".\n CHAVE:\t\t"+getChaves()+
+							".\n MOCHILA CHEIA?"+capacidadeMochila());
+	}
 }
