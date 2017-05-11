@@ -1,7 +1,14 @@
+import java.util.ArrayList;
+
 public class Player extends Movimento{
-	public Player(){
-		this.salaId = 1;
+	public void moveToDoor(ArrayList<Sala> salas,char id){
+		int salaOrigem = this.getSalaId();
+		super.moveToDoor(salas, id);
+		salas.get(salaOrigem).setContemPlayer(false);
+		salas.get(this.getSalaId()).setContemPlayer(true);
+		
 	}
+	
 	public void pickUpOuro(int ouro){
 		
 	}

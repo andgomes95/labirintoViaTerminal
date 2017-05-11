@@ -1,4 +1,3 @@
-
 public class Carregador {
 	protected int ouro;
 	public int getOuro() {
