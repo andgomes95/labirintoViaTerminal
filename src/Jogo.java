@@ -20,11 +20,10 @@ public class Jogo{
 		Mapa mapa = new Mapa(20);
 		int a = 0;
 		Scanner ler = new Scanner(System.in);
-		for (;a != 1000;){
+		for (;player.isFim()==false;){
 			
 			player.moveToDoor(mapa.getSalas(),ultimaLetra(ler.next()));
 			System.out.println(player.getSalaId());
-			a = player.getSalaId();
 		}
 		
 		
