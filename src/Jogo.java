@@ -10,7 +10,7 @@ public class Jogo{
 			if (leitura[0].equals("moveTo")){
 				leitura = Instrucao.moveTo(leitura[1],player,mapa);
 			}else if(leitura[0].equals("drop")){
-				//IMPLEMENTAR
+				
 				leitura = Instrucao.leitura();
 			}else if (leitura[0].equals("throwAxe")){
 				//IMPLEMENTAR

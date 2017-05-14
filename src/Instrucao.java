@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Instrucao {
 	
-	public char ultimaLetra(String nome) {
+	public static char retiraLetra(String nome) {
 	    if (nome != null && nome.length() > 0) {
-	        return nome.charAt(nome.length() - 1);
+	        return nome.charAt(0);
 	    }
 	    return (char) 0;
 	}
@@ -21,20 +21,7 @@ public class Instrucao {
 	public static String[] moveTo(String destino,Player player,Mapa mapa){
 		String[] leitura = new String[3];
 		if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
-			switch(destino){
-			case "a":
-				player.moveToDoor(mapa.getSalas(),'a');
-				break;
-			case "b":
-				player.moveToDoor(mapa.getSalas(),'b');
-				break;
-			case "c":
-				player.moveToDoor(mapa.getSalas(),'c');
-				break;
-			default:
-				System.out.println("Porta Inexistente.");
-				break;
-			}
+			player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
 			leitura = Instrucao.leitura();
 			return leitura;
 		}else{
@@ -91,4 +78,5 @@ public class Instrucao {
 			}
 		}
 	}
+	
 }
