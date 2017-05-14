@@ -35,6 +35,8 @@ public class Instrucao {
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("gold")){
 						player.pickUpOuro(mapa.getSalas());
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -44,6 +46,8 @@ public class Instrucao {
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("diamond")){
 						player.pickUpDiamante(mapa.getSalas());
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -53,6 +57,8 @@ public class Instrucao {
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("axe")){
 						player.pickUpMachado(mapa.getSalas());
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -62,6 +68,8 @@ public class Instrucao {
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("potion")){
 						player.pickUpPocoes(mapa.getSalas());
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -71,6 +79,8 @@ public class Instrucao {
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("key")){
 						player.pickUpChave(mapa.getSalas());
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
 				}
 				leitura = Instrucao.leitura();

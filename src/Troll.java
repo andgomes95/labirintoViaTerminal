@@ -43,6 +43,7 @@ public class Troll extends Movimento{
 			System.out.println("O Troll "+getName()+" te acertou e removeu todo seu ouro e diamantes");
 		}else{
 			System.out.println("O Troll "+getName()+" te acertou e removeu uma poção de vida");
+			player.setPocoes(getPocoes()-1);
 		}
 	}
 	public String getName() {
