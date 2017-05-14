@@ -83,13 +83,13 @@ public Mapa(int quantidadeSalas){
 		getSalas().get(16).portaC.setSalaId(-1);
 		//portas sala 18
 		getSalas().get(17).portaA.setSalaId(18);
-		getSalas().get(17).portaA.setPortaTrancada(true);
+		//getSalas().get(17).portaA.setPortaTrancada(true);
 		getSalas().get(17).portaB.setSalaId(16);
 		getSalas().get(17).portaC.setSalaId(-1);
 		//portas sala 19
 		getSalas().get(18).portaA.setSalaId(13);
 		getSalas().get(18).portaB.setSalaId(17);
-		getSalas().get(18).portaB.setPortaTrancada(true);
+		//getSalas().get(18).portaB.setPortaTrancada(true);
 		getSalas().get(18).portaC.setSalaId(-1);
 		//portas sala 20
 		getSalas().get(19).portaA.setSalaId(11);

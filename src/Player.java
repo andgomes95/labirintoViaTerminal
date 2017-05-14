@@ -8,9 +8,9 @@ public class Player extends Movimento{
 		salas.get(this.getSalaId()).setContemPlayer(true);
 		
 	}
-	public void pickUpMachado(ArrayList<Sala> salas,int id){
+	public void pickUpMachado(ArrayList<Sala> salas){
 		if(capacidadeMochila()==true){
-			super.pickUpMachado(salas, id);
+			super.pickUpMachado(salas);
 		}
 	}
 	public void pickUpOuro(int ouro){
@@ -68,6 +68,6 @@ public class Player extends Movimento{
 							".\n MACHADO:\t"+getMachado()+
 							".\n POCOES:\t"+getPocoes()+
 							".\n CHAVE:\t\t"+getChaves()+
-							".\n MOCHILA CHEIA?"+capacidadeMochila());
+							".\n MOCHILA CHEIA?"+!capacidadeMochila());
 	}
 }
