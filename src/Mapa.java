@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class Mapa{
 	private ArrayList<Sala> salas;
-	private int quantidadeSalas;
 	private ArrayList<Troll> trolls;
 	public Mapa(int quantidadeSalas){
-		this.quantidadeSalas = quantidadeSalas;
 		setSalas(new ArrayList<Sala>());
 		for (int i=0;i<quantidadeSalas;i++){
-			getSalas().add(new Sala());
+			getSalas().add(new Sala(i));
 			getSalas().get(i).geraItens();
 		}
 		setTrolls(new ArrayList<Troll>());
@@ -100,8 +98,6 @@ public class Mapa{
 		getSalas().get(19).getPortaA().setSalaId(11);
 		getSalas().get(19).getPortaB().setSalaId(-1);
 		getSalas().get(19).getPortaC().setSalaId(-1);
-
-		
 	}
 	public ArrayList<Sala> getSalas() {
 		return salas;

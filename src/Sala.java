@@ -20,7 +20,8 @@ public class Sala extends Carregador{
 	private Porta portaA;
 	private Porta portaB;
 	private Porta portaC;
-	public Sala(){
+	public Sala(int id){
+		setSalaId(id);
 		setPortaA(new Porta());
 		setPortaB(new Porta());
 		setPortaC(new Porta());
@@ -48,8 +49,8 @@ public class Sala extends Carregador{
 							".\n TROLL: \t"+getContemTroll());
 		if (getContemTroll()>0){
 			System.out.println("Os trolls na sala são:");
-			for(i=0;i>4;i++){
-				if(mapa.getTrolls().get(i).getSalaId()==getSalaId()){
+			for(i=0;i<4;i++){
+				if(mapa.getTrolls().get(i).getSalaId()==(getSalaId())){
 					System.out.println(mapa.getTrolls().get(i).getName());
 				}
 			}

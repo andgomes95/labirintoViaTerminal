@@ -5,7 +5,6 @@ public class Jogo{
 		Mapa mapa = new Mapa(20);
 		String[] leitura = new String[3];
 		leitura = Instrucao.leitura();
-		int i;
 		while (player.isFim()==false){
 			if (leitura[0].equals("moveTo")){
 				leitura = Instrucao.moveTo(leitura[1],player,mapa);
