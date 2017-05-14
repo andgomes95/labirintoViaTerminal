@@ -6,12 +6,10 @@ public class Jogo{
 		String[] leitura = new String[3];
 		leitura = Instrucao.leitura();
 		while (player.isFim()==false){
-			//player.viewPlayer();
 			if (leitura[0].equals("moveTo")){
 				leitura = Instrucao.moveTo(leitura[1],player,mapa);
 			}else if(leitura[0].equals("drop")){
-				
-				leitura = Instrucao.leitura();
+				leitura = Instrucao.dropItem(leitura[1], player, mapa);
 			}else if (leitura[0].equals("throwAxe")){
 				//IMPLEMENTAR
 				leitura = Instrucao.leitura();
@@ -19,9 +17,24 @@ public class Jogo{
 				mapa.getSalas().get(player.getSalaId()).viewSala();
 				leitura = Instrucao.leitura();
 			}else if(leitura[0].equals("openDoor")){
-				//IMPLEMENTAR
+				if(leitura[1].equals("a")){
+					player.openPorta(mapa.getSalas().get(player.getSalaId()).portaA, mapa.getSalas());
+				}else if(leitura[1].equals("b")){
+					player.openPorta(mapa.getSalas().get(player.getSalaId()).portaB, mapa.getSalas());
+				}else if(leitura[1].equals("c")){
+					player.openPorta(mapa.getSalas().get(player.getSalaId()).portaC, mapa.getSalas());
+				}
+				leitura = Instrucao.leitura();
 			}else if(leitura[0].equals("closeDoor")){
-				//IMPLEMENTAR
+				if(leitura[1].equals("a")){
+					System.out.println("ENTRA AQUI");
+					player.closePorta(mapa.getSalas().get(player.getSalaId()).portaA, mapa.getSalas());
+				}else if(leitura[1].equals("b")){
+					player.closePorta(mapa.getSalas().get(player.getSalaId()).portaB, mapa.getSalas());
+				}else if(leitura[1].equals("c")){
+					player.closePorta(mapa.getSalas().get(player.getSalaId()).portaC, mapa.getSalas());
+				}
+				leitura = Instrucao.leitura();
 			}else if(leitura[0].equals("viewKit")){
 				player.viewPlayer();
 				leitura = Instrucao.leitura();

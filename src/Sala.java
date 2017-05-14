@@ -34,7 +34,7 @@ public class Sala extends Carregador{
 		//Função random para gerar 0 ou 1, com mais chance de dar 0;
 		valor = (int)(gerador.nextFloat()*1.2);
 		setMachado(valor);
-		valor = (int)(gerador.nextFloat()*1.2);
+		valor = (int)(gerador.nextFloat()*2);
 		setPocoes(valor);
 	}
 	public void viewSala(){

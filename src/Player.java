@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Player extends Movimento{
 	public void moveToDoor(ArrayList<Sala> salas,char id){
-		
 		int salaOrigem = this.getSalaId();
 		super.moveToDoor(salas, id);
 		salas.get(salaOrigem).setContemPlayer(false);
@@ -22,17 +21,26 @@ public class Player extends Movimento{
 		setDiamante(salas.get(getSalaId()).getDiamante()+getDiamante());
 		salas.get(getSalaId()).setDiamante(0);
 	}
-	
+	public void dropOuro(ArrayList<Sala> salas){
+		salas.get(getSalaId()).setOuro(salas.get(getSalaId()).getOuro()+getOuro());
+		setOuro(0);
+	}
+	public void dropDiamante(ArrayList<Sala> salas){
+		salas.get(getSalaId()).setDiamante(salas.get(getSalaId()).getDiamante()+getDiamante());
+		setDiamante(0);
+	}
 	public void pickUpChave(ArrayList<Sala> salas){
 		setChaves(salas.get(getSalaId()).getChaves()+getChaves());
 		salas.get(getSalaId()).setChaves(0);
 	}
 	public void dropChave(ArrayList<Sala> salas){
-		setChaves(getChaves()-1);
-		salas.get(getSalaId()).setChaves(salas.get(getSalaId()).getChaves()+1);
+		if(getChaves()>0){
+			setChaves(getChaves()-1);
+			salas.get(getSalaId()).setChaves(salas.get(getSalaId()).getChaves()+1);
+		}
 	}
 	public void openPorta(Porta porta,ArrayList<Sala> salas){
-		if(porta.isPortaTrancada()==true&&getChaves()>1){
+		if(porta.isPortaTrancada()==true&&getChaves()>0){
 			porta.setPortaTrancada(false);
 			if(salas.get(porta.getSalaId()).portaA.getSalaId()==getSalaId()){
 				salas.get(porta.getSalaId()).portaA.setPortaTrancada(false);
@@ -53,8 +61,10 @@ public class Player extends Movimento{
 		salas.get(getSalaId()).setPocoes(0);
 	}
 	public void DropPocoes(ArrayList<Sala> salas){
-		setPocoes(getPocoes()-1);
-		salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()+1);
+		if(getPocoes()>0){
+			setPocoes(getPocoes()-1);
+			salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()+1);
+		}
 	}
 	public void closePorta(Porta porta,ArrayList<Sala> salas){
 		if(porta.isPortaTrancada()==true){

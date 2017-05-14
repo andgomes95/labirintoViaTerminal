@@ -78,5 +78,33 @@ public class Instrucao {
 			}
 		}
 	}
-	
+	public static String[] dropItem(String item,Player player,Mapa mapa){
+		String[] leitura = new String[3];
+		switch(item){
+		case "gold":
+			player.dropOuro(mapa.getSalas());
+			leitura = Instrucao.leitura();
+			return leitura;
+		case "diamond":
+			player.dropDiamante(mapa.getSalas());
+			leitura = Instrucao.leitura();
+			return leitura;
+		case "axe":
+			player.dropMachado(mapa.getSalas());
+			leitura = Instrucao.leitura();
+			return leitura;
+		case "potion":
+			player.DropPocoes(mapa.getSalas());
+			leitura = Instrucao.leitura();
+			return leitura;
+		case "key":
+			player.dropChave(mapa.getSalas());
+			leitura = Instrucao.leitura();
+			return leitura;
+		default:
+			System.out.println("Não existe este item");
+			leitura = Instrucao.leitura();
+			return leitura;
+		}
+	}
 }
