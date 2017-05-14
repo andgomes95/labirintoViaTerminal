@@ -1,12 +1,23 @@
 import java.util.ArrayList;
 
 public class Player extends Movimento{
-	public void moveToDoor(ArrayList<Sala> salas,char id){
+	public int moveToDoor(ArrayList<Sala> salas,char id){
 		int salaOrigem = this.getSalaId();
-		super.moveToDoor(salas, id);
-		salas.get(salaOrigem).setContemPlayer(false);
-		salas.get(this.getSalaId()).setContemPlayer(true);
-		
+		int flag = super.moveToDoor(salas, id);
+		if(flag == 0){
+			salas.get(salaOrigem).setContemPlayer(false);
+			salas.get(this.getSalaId()).setContemPlayer(true);
+		}else if(flag == 1){
+			System.out.println("A porta está trancada.");
+		}else if(flag == 2){
+			System.out.println("Não existe esta porta.");
+		}else if(flag == 3){
+			System.out.println("Opção inexistente.");
+		}else if (flag == 4){
+			salas.get(salaOrigem).setContemPlayer(false);
+			salas.get(this.getSalaId()).setContemPlayer(true);
+		}
+		return flag;
 	}
 	public void pickUpMachado(ArrayList<Sala> salas){
 		if(capacidadeMochila()==true){
@@ -42,12 +53,12 @@ public class Player extends Movimento{
 	public void openPorta(Porta porta,ArrayList<Sala> salas){
 		if(porta.isPortaTrancada()==true&&getChaves()>0){
 			porta.setPortaTrancada(false);
-			if(salas.get(porta.getSalaId()).portaA.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaA.setPortaTrancada(false);
-			}else if(salas.get(porta.getSalaId()).portaB.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaB.setPortaTrancada(false);
-			}else if(salas.get(porta.getSalaId()).portaC.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaC.setPortaTrancada(false);
+			if(salas.get(porta.getSalaId()).getPortaA().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaA().setPortaTrancada(false);
+			}else if(salas.get(porta.getSalaId()).getPortaB().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaB().setPortaTrancada(false);
+			}else if(salas.get(porta.getSalaId()).getPortaC().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaC().setPortaTrancada(false);
 			}
 		}else if (porta.isPortaTrancada()==false){
 			System.out.println("A porta não está trancada.");
@@ -72,12 +83,12 @@ public class Player extends Movimento{
 		}else if (porta.isPortaTrancada()==false){
 			setPocoes(getPocoes()-1);
 			porta.setPortaTrancada(true);
-			if(salas.get(porta.getSalaId()).portaA.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaA.setPortaTrancada(true);
-			}else if(salas.get(porta.getSalaId()).portaB.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaB.setPortaTrancada(true);
-			}else if(salas.get(porta.getSalaId()).portaC.getSalaId()==getSalaId()){
-				salas.get(porta.getSalaId()).portaC.setPortaTrancada(true);
+			if(salas.get(porta.getSalaId()).getPortaA().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaA().setPortaTrancada(true);
+			}else if(salas.get(porta.getSalaId()).getPortaB().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaB().setPortaTrancada(true);
+			}else if(salas.get(porta.getSalaId()).getPortaC().getSalaId()==getSalaId()){
+				salas.get(porta.getSalaId()).getPortaC().setPortaTrancada(true);
 			}
 		}
 	}

@@ -17,13 +17,13 @@ public class Sala extends Carregador{
 		this.contemPlayer = contemPlayer;
 	}
 
-	public Porta portaA;
-	public Porta portaB;
-	public Porta portaC;
+	private Porta portaA;
+	private Porta portaB;
+	private Porta portaC;
 	public Sala(){
-		portaA = new Porta();
-		portaB = new Porta();
-		portaC = new Porta();
+		setPortaA(new Porta());
+		setPortaB(new Porta());
+		setPortaC(new Porta());
 	}
 	public void geraItens(){
 		Random gerador = new Random();
@@ -45,5 +45,23 @@ public class Sala extends Carregador{
 							".\n POCOES:\t"+getPocoes()+
 							".\n CHAVE:\t\t"+getChaves()+
 							".\n TROLL: \t"+getContemTroll());
+	}
+	public Porta getPortaA() {
+		return portaA;
+	}
+	public void setPortaA(Porta portaA) {
+		this.portaA = portaA;
+	}
+	public Porta getPortaB() {
+		return portaB;
+	}
+	public void setPortaB(Porta portaB) {
+		this.portaB = portaB;
+	}
+	public Porta getPortaC() {
+		return portaC;
+	}
+	public void setPortaC(Porta portaC) {
+		this.portaC = portaC;
 	}
 }

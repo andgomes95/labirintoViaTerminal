@@ -12,89 +12,89 @@ public Mapa(int quantidadeSalas){
 			getSalas().get(i).geraItens();
 		}
 		//portas sala 1
-		getSalas().get(0).portaA.setSalaId(5);
-		getSalas().get(0).portaB.setSalaId(1);
-		getSalas().get(0).portaC.setSalaId(-1);
+		getSalas().get(0).getPortaA().setSalaId(5);
+		getSalas().get(0).getPortaB().setSalaId(1);
+		getSalas().get(0).getPortaC().setSalaId(-1);
 		getSalas().get(0).setContemPlayer(true);
 		//portas sala 2
-		getSalas().get(1).portaA.setSalaId(0);
-		getSalas().get(1).portaB.setSalaId(2);
-		getSalas().get(1).portaC.setSalaId(-1);
+		getSalas().get(1).getPortaA().setSalaId(0);
+		getSalas().get(1).getPortaB().setSalaId(2);
+		getSalas().get(1).getPortaC().setSalaId(-1);
 		//portas sala 3
-		getSalas().get(2).portaA.setSalaId(1);
-		getSalas().get(2).portaB.setSalaId(7);
-		getSalas().get(2).portaC.setSalaId(-1);
+		getSalas().get(2).getPortaA().setSalaId(1);
+		getSalas().get(2).getPortaB().setSalaId(7);
+		getSalas().get(2).getPortaC().setSalaId(-1);
 		//portas sala 4
-		getSalas().get(3).portaA.setSalaId(1000);
-		getSalas().get(3).portaB.setSalaId(4);
-		getSalas().get(3).portaC.setSalaId(-1);
+		getSalas().get(3).getPortaA().setSalaId(1000);
+		getSalas().get(3).getPortaB().setSalaId(4);
+		getSalas().get(3).getPortaC().setSalaId(-1);
 		//portas sala 5
-		getSalas().get(4).portaA.setSalaId(9);
-		getSalas().get(4).portaB.setSalaId(3);
-		getSalas().get(4).portaC.setSalaId(-1);
+		getSalas().get(4).getPortaA().setSalaId(9);
+		getSalas().get(4).getPortaB().setSalaId(3);
+		getSalas().get(4).getPortaC().setSalaId(-1);
 		//portas sala 6
-		getSalas().get(5).portaA.setSalaId(0);
-		getSalas().get(5).portaB.setSalaId(6);
-		getSalas().get(5).portaC.setSalaId(-1);
+		getSalas().get(5).getPortaA().setSalaId(0);
+		getSalas().get(5).getPortaB().setSalaId(6);
+		getSalas().get(5).getPortaC().setSalaId(-1);
 		//portas sala 7
-		getSalas().get(6).portaA.setSalaId(11);
-		getSalas().get(6).portaB.setSalaId(5);
-		getSalas().get(6).portaC.setSalaId(-1);
+		getSalas().get(6).getPortaA().setSalaId(11);
+		getSalas().get(6).getPortaB().setSalaId(5);
+		getSalas().get(6).getPortaC().setSalaId(-1);
 		getSalas().get(6).setChaves(1);
 		//portas sala 8
-		getSalas().get(7).portaA.setSalaId(12);
-		getSalas().get(7).portaB.setSalaId(2);
-		getSalas().get(7).portaC.setSalaId(-1);
+		getSalas().get(7).getPortaA().setSalaId(12);
+		getSalas().get(7).getPortaB().setSalaId(2);
+		getSalas().get(7).getPortaC().setSalaId(-1);
 		//portas sala 9
-		getSalas().get(8).portaA.setSalaId(9);
-		getSalas().get(8).portaB.setSalaId(-1);
-		getSalas().get(8).portaC.setSalaId(-1);
+		getSalas().get(8).getPortaA().setSalaId(9);
+		getSalas().get(8).getPortaB().setSalaId(-1);
+		getSalas().get(8).getPortaC().setSalaId(-1);
 		//portas sala 10
-		getSalas().get(9).portaA.setSalaId(8);
-		getSalas().get(9).portaB.setSalaId(14);
-		getSalas().get(9).portaC.setSalaId(4);
+		getSalas().get(9).getPortaA().setSalaId(8);
+		getSalas().get(9).getPortaB().setSalaId(14);
+		getSalas().get(9).getPortaC().setSalaId(4);
 		//portas sala 11
-		getSalas().get(10).portaA.setSalaId(11);
-		getSalas().get(10).portaB.setSalaId(15);
-		getSalas().get(10).portaC.setSalaId(-1);
+		getSalas().get(10).getPortaA().setSalaId(11);
+		getSalas().get(10).getPortaB().setSalaId(15);
+		getSalas().get(10).getPortaC().setSalaId(-1);
 		//portas sala 12
-		getSalas().get(11).portaA.setSalaId(10);
-		getSalas().get(11).portaB.setSalaId(6);
-		getSalas().get(11).portaC.setSalaId(12);
+		getSalas().get(11).getPortaA().setSalaId(10);
+		getSalas().get(11).getPortaB().setSalaId(6);
+		getSalas().get(11).getPortaC().setSalaId(12);
 		//portas sala 13
-		getSalas().get(12).portaA.setSalaId(11);
-		getSalas().get(12).portaB.setSalaId(7);
-		getSalas().get(12).portaC.setSalaId(-1);
+		getSalas().get(12).getPortaA().setSalaId(11);
+		getSalas().get(12).getPortaB().setSalaId(7);
+		getSalas().get(12).getPortaC().setSalaId(-1);
 		//portas sala 14
-		getSalas().get(13).portaA.setSalaId(14);
-		getSalas().get(13).portaB.setSalaId(18);
-		getSalas().get(13).portaC.setSalaId(-1);
+		getSalas().get(13).getPortaA().setSalaId(14);
+		getSalas().get(13).getPortaB().setSalaId(18);
+		getSalas().get(13).getPortaC().setSalaId(-1);
 		//portas sala 15
-		getSalas().get(14).portaA.setSalaId(13);
-		getSalas().get(14).portaB.setSalaId(9);
-		getSalas().get(14).portaC.setSalaId(19);
+		getSalas().get(14).getPortaA().setSalaId(13);
+		getSalas().get(14).getPortaB().setSalaId(9);
+		getSalas().get(14).getPortaC().setSalaId(19);
 		//portas sala 16
-		getSalas().get(15).portaA.setSalaId(10);
-		getSalas().get(15).portaB.setSalaId(16);
-		getSalas().get(15).portaC.setSalaId(-1);
+		getSalas().get(15).getPortaA().setSalaId(10);
+		getSalas().get(15).getPortaB().setSalaId(16);
+		getSalas().get(15).getPortaC().setSalaId(-1);
 		//portas sala 17
-		getSalas().get(16).portaA.setSalaId(15);
-		getSalas().get(16).portaB.setSalaId(17);
-		getSalas().get(16).portaC.setSalaId(-1);
+		getSalas().get(16).getPortaA().setSalaId(15);
+		getSalas().get(16).getPortaB().setSalaId(17);
+		getSalas().get(16).getPortaC().setSalaId(-1);
 		//portas sala 18
-		getSalas().get(17).portaA.setSalaId(18);
-		getSalas().get(17).portaA.setPortaTrancada(true);
-		getSalas().get(17).portaB.setSalaId(16);
-		getSalas().get(17).portaC.setSalaId(-1);
+		getSalas().get(17).getPortaA().setSalaId(18);
+		getSalas().get(17).getPortaA().setPortaTrancada(true);
+		getSalas().get(17).getPortaB().setSalaId(16);
+		getSalas().get(17).getPortaC().setSalaId(-1);
 		//portas sala 19
-		getSalas().get(18).portaA.setSalaId(13);
-		getSalas().get(18).portaB.setSalaId(17);
-		getSalas().get(18).portaB.setPortaTrancada(true);
-		getSalas().get(18).portaC.setSalaId(-1);
+		getSalas().get(18).getPortaA().setSalaId(13);
+		getSalas().get(18).getPortaB().setSalaId(17);
+		getSalas().get(18).getPortaB().setPortaTrancada(true);
+		getSalas().get(18).getPortaC().setSalaId(-1);
 		//portas sala 20
-		getSalas().get(19).portaA.setSalaId(11);
-		getSalas().get(19).portaB.setSalaId(-1);
-		getSalas().get(19).portaC.setSalaId(-1);
+		getSalas().get(19).getPortaA().setSalaId(11);
+		getSalas().get(19).getPortaB().setSalaId(-1);
+		getSalas().get(19).getPortaC().setSalaId(-1);
 
 		
 	}

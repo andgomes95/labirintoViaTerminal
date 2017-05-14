@@ -15,40 +15,47 @@ public class Movimento extends Carregador{
 	public void setFim(boolean fim) {
 		this.fim = fim;
 	}
-	public void moveToDoor(ArrayList<Sala> salas,char id){
-		System.out.println(id);
+	/* FLAGS DE RETORNO PARA O METODO moveToDoor:
+	 * 0 - Movimento executado
+	 * 1 - Porta Trancada
+	 * 2 - Porta Inexistente
+	 * 3 - Opção Inexistente
+	 * 4 - Saida
+	 */
+	public int moveToDoor(ArrayList<Sala> salas,char id){
 		switch(id){
 		case 'a':
-			if(salas.get(getSalaId()).portaA.getSalaId() == 1000){
-				System.out.println("VOCÊ CHEGOU NA SAIDA");
+			if(salas.get(getSalaId()).getPortaA().getSalaId() == 1000){
 				this.setFim(true);
-			}else if((salas.get(getSalaId()).portaA.getSalaId() != -1)&&(salas.get(getSalaId()).portaA.isPortaTrancada()!= true)){
-				setSalaId(salas.get(getSalaId()).portaA.getSalaId());
-				
-			}else if(salas.get(getSalaId()).portaA.isPortaTrancada()){
-				System.out.println("A porta está trancada.");
+				return 4;
+			}else if((salas.get(getSalaId()).getPortaA().getSalaId() != -1)&&(salas.get(getSalaId()).getPortaA().isPortaTrancada()!= true)){
+				setSalaId(salas.get(getSalaId()).getPortaA().getSalaId());
+				return 0;
+			}else if(salas.get(getSalaId()).getPortaA().isPortaTrancada()){
+				return 1;
 			}else{
-				System.out.println("Sala inexistente.");
+				return 2;
 			}
-			break;
 		case 'b':
-			if((salas.get(getSalaId()).portaB.getSalaId() != -1)&&(salas.get(getSalaId()).portaB.isPortaTrancada()!=true)){
-				setSalaId(salas.get(getSalaId()).portaB.getSalaId());
-			}else if(salas.get(getSalaId()).portaB.isPortaTrancada()){
-				System.out.println("A porta está trancada.");
+			if((salas.get(getSalaId()).getPortaB().getSalaId() != -1)&&(salas.get(getSalaId()).getPortaB().isPortaTrancada()!=true)){
+				setSalaId(salas.get(getSalaId()).getPortaB().getSalaId());
+				return 0;
+			}else if(salas.get(getSalaId()).getPortaB().isPortaTrancada()){
+				return 1;
 			}else{
-				System.out.println("Sala inexistente.");
-			}break;
+				return 2;
+			}
 		case 'c':
-			if((salas.get(getSalaId()).portaC.getSalaId() != -1)&&(salas.get(getSalaId()).portaC.isPortaTrancada()!=true)){
-				setSalaId(salas.get(getSalaId()).portaC.getSalaId());
-			}else if(salas.get(getSalaId()).portaC.isPortaTrancada()){
-				System.out.println("A porta está trancada.");
+			if((salas.get(getSalaId()).getPortaC().getSalaId() != -1)&&(salas.get(getSalaId()).getPortaC().isPortaTrancada()!=true)){
+				setSalaId(salas.get(getSalaId()).getPortaC().getSalaId());
+				return 0;
+			}else if(salas.get(getSalaId()).getPortaC().isPortaTrancada()){
+				return 1;
 			}else{
-				System.out.println("Sala inexistente.");
-			}break;
+				return 2;
+			}
 		default:
-			System.out.println("Sala inexistente");
+			return 3;
 		}
 	}
 	
