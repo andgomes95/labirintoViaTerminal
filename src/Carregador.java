@@ -1,5 +1,5 @@
 /***************************************************************************************************************
- * Classe Carregador: A classe define objeto que tem a capacidade de carregar itens
+ * Classe Carregador: A classe define objetos que tem a capacidade de carregar itens
  ***************************************************************************************************************/
 public class Carregador {
 	//Atributo referente a indentificação da sala em que o carregador está 	private int salaId;

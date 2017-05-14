@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 /***************************************************************************************************************
- * Classe Movimento: A classe define objeto que tem a capacidade de se movimentar, além de carregar itens, 
+ * Classe Movimento: A classe define objetos que tem a capacidade de se movimentar, além de carregar itens, 
  * habilidade herdada da classe Carregador
  ***************************************************************************************************************/
 public class Movimento extends Carregador{
