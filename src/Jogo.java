@@ -18,7 +18,15 @@ public class Jogo{
 			}else if (leitura[0].equals("view")){
 				mapa.getSalas().get(player.getSalaId()).viewSala();
 				leitura = Instrucao.leitura();
-			}else{
+			}else if(leitura[0].equals("openDoor")){
+				//IMPLEMENTAR
+			}else if(leitura[0].equals("closeDoor")){
+				//IMPLEMENTAR
+			}else if(leitura[0].equals("viewKit")){
+				player.viewPlayer();
+				leitura = Instrucao.leitura();
+			}
+			else{
 				System.out.println("Instrução não conhecida.");
 				leitura = Instrucao.leitura();
 			}

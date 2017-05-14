@@ -43,7 +43,7 @@ public class Instrucao {
 				leitura = Instrucao.leitura();
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("gold")){
-						player.pickUpOuro(0);
+						player.pickUpOuro(mapa.getSalas());
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -52,7 +52,7 @@ public class Instrucao {
 				leitura = Instrucao.leitura();
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("diamond")){
-						player.pickUpDiamante(0);
+						player.pickUpDiamante(mapa.getSalas());
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -70,7 +70,7 @@ public class Instrucao {
 				leitura = Instrucao.leitura();
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("potion")){
-						player.pickUpPocoes();
+						player.pickUpPocoes(mapa.getSalas());
 					}
 				}
 				leitura = Instrucao.leitura();
@@ -79,7 +79,7 @@ public class Instrucao {
 				leitura = Instrucao.leitura();
 				if (leitura[0].equals("pickUp")){
 					if(leitura[1].equals("key")){
-						player.pickUpChave();
+						player.pickUpChave(mapa.getSalas());
 					}
 				}
 				leitura = Instrucao.leitura();

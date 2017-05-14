@@ -53,14 +53,13 @@ public class Movimento extends Carregador{
 	}
 	
 	public void pickUpMachado(ArrayList<Sala> salas){
-		setMachado(salas.get(salaId).machado+getMachado());
+		setMachado(salas.get(getSalaId()).getMachado()+getMachado());
+		salas.get(getSalaId()).setMachado(0);
 	}
 	public void dropMachado(ArrayList<Sala> salas){
 		setMachado(getMachado()-1);
 		setMachado(salas.get(salaId).machado+1);
 	}
-	public void throwMachado(){
-		
-	}
+	
 	
 }
