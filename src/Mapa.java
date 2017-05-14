@@ -3,14 +3,19 @@ import java.util.ArrayList;
 public class Mapa{
 	private ArrayList<Sala> salas;
 	private int quantidadeSalas;
-	
-public Mapa(int quantidadeSalas){
+	private ArrayList<Troll> trolls;
+	public Mapa(int quantidadeSalas){
 		this.quantidadeSalas = quantidadeSalas;
-		 setSalas(new ArrayList<Sala>());
-		 for (int i=0;i<quantidadeSalas;i++){
+		setSalas(new ArrayList<Sala>());
+		for (int i=0;i<quantidadeSalas;i++){
 			getSalas().add(new Sala());
 			getSalas().get(i).geraItens();
 		}
+		setTrolls(new ArrayList<Troll>());
+		getTrolls().add(new Troll(salas,"Michaelangelo",quantidadeSalas));
+		getTrolls().add(new Troll(salas,"Donatelo",quantidadeSalas));
+		getTrolls().add(new Troll(salas,"Leonardo",quantidadeSalas));
+		getTrolls().add(new Troll(salas,"Raphael",quantidadeSalas));
 		//portas sala 1
 		getSalas().get(0).getPortaA().setSalaId(5);
 		getSalas().get(0).getPortaB().setSalaId(1);
@@ -98,16 +103,17 @@ public Mapa(int quantidadeSalas){
 
 		
 	}
-	public void printaMapa(){
-		for (int i=0;i<quantidadeSalas;i++){
-			System.out.println("Sala "+ (i+1) +":\n\n");
-			getSalas().get(i).viewSala();
-		}
-	}
 	public ArrayList<Sala> getSalas() {
 		return salas;
 	}
 	public void setSalas(ArrayList<Sala> salas) {
 		this.salas = salas;
 	}
+	public ArrayList<Troll> getTrolls() {
+		return trolls;
+	}
+	public void setTrolls(ArrayList<Troll> trolls) {
+		this.trolls = trolls;
+	}
+
 }

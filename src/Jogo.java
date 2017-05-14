@@ -5,16 +5,17 @@ public class Jogo{
 		Mapa mapa = new Mapa(20);
 		String[] leitura = new String[3];
 		leitura = Instrucao.leitura();
+		int i;
 		while (player.isFim()==false){
 			if (leitura[0].equals("moveTo")){
 				leitura = Instrucao.moveTo(leitura[1],player,mapa);
 			}else if(leitura[0].equals("drop")){
 				leitura = Instrucao.dropItem(leitura[1], player, mapa);
 			}else if (leitura[0].equals("throwAxe")){
-				//IMPLEMENTAR
+				player.throwAxe(mapa,leitura[1]);
 				leitura = Instrucao.leitura();
 			}else if (leitura[0].equals("view")){
-				mapa.getSalas().get(player.getSalaId()).viewSala();
+				mapa.getSalas().get(player.getSalaId()).viewSala(mapa);
 				leitura = Instrucao.leitura();
 			}else if(leitura[0].equals("openDoor")){
 				if(leitura[1].equals("a")){
@@ -42,7 +43,9 @@ public class Jogo{
 				System.out.println("Instrução não conhecida.");
 				leitura = Instrucao.leitura();
 			}
-			
+			for (i=0;i<4;i++){
+				mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+			}
 		}
 	}
 } 

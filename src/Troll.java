@@ -2,14 +2,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Troll extends Movimento{
-	String name;
-	public Troll(ArrayList<Sala> salas,String name){
+	private String name;
+	public Troll(ArrayList<Sala> salas,String name,int qntdSalas){
 		Random gerador = new Random();
-		setSalaId(gerador.nextInt(20));
+		setSalaId(gerador.nextInt(qntdSalas));
 		salas.get(getSalaId()).setContemTroll(salas.get(getSalaId()).getContemTroll()+1);
-		this.name = name;
+		setName(name);
 	}
-	public void moveToDoor(ArrayList<Sala> salas){
+	public void moveToDoor(ArrayList<Sala> salas,Player player){
+		int salaOrigem = getSalaId();
 		Random gerador = new Random();
 		int auxiliar,flag=1;
 		while(flag>0){
@@ -25,12 +26,29 @@ public class Troll extends Movimento{
 				flag = 0;
 			}
 		}
-		
-		if (salas.get(getSalaId()).getMachado()>0){
+		salas.get(salaOrigem).setContemTroll(salas.get(salaOrigem).getContemTroll()-1);
+		salas.get(getSalaId()).setContemTroll(salas.get(getSalaId()).getContemTroll()+1);
+		if (salas.get(getSalaId()).getMachado()>0&&getMachado()==0){
 			pickUpMachado(salas);
 		}
-		if (salas.get(getSalaId()).isContemPlayer()==true){
-			//throwAxe
+		if (salas.get(getSalaId()).isContemPlayer()==true&&getMachado()>0){
+			throwAxe(player);
 		}
+	}
+	public void throwAxe (Player player){
+		if(player.getPocoes()==0){
+			player.setOuro(0);
+			player.setDiamante(0);
+			super.throwAxe();
+			System.out.println("O Troll "+getName()+" te acertou e removeu todo seu ouro e diamantes");
+		}else{
+			System.out.println("O Troll "+getName()+" te acertou e removeu uma poção de vida");
+		}
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 }

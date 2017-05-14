@@ -25,12 +25,20 @@ public class Player extends Movimento{
 		}
 	}
 	public void pickUpOuro(ArrayList<Sala> salas){
-		setOuro(salas.get(getSalaId()).getOuro()+getOuro());
-		salas.get(getSalaId()).setOuro(0);
+		if(salas.get(getSalaId()).getContemTroll()==0){
+			setOuro(salas.get(getSalaId()).getOuro()+getOuro());
+			salas.get(getSalaId()).setOuro(0);
+		}else{
+			System.out.println("Há um troll na sala. Não será possivel a remoção do ouro");
+		}
 	}
 	public void pickUpDiamante(ArrayList<Sala> salas){
+		if(salas.get(getSalaId()).getContemTroll()==0){
 		setDiamante(salas.get(getSalaId()).getDiamante()+getDiamante());
 		salas.get(getSalaId()).setDiamante(0);
+		}else{
+			System.out.println("Há um troll na sala. Não será possivel a remoção do diamante");
+		}
 	}
 	public void dropOuro(ArrayList<Sala> salas){
 		salas.get(getSalaId()).setOuro(salas.get(getSalaId()).getOuro()+getOuro());
@@ -95,7 +103,7 @@ public class Player extends Movimento{
 	
 
 	public boolean capacidadeMochila(){
-		int total = this.chaves + this.machado + this.pocoes;
+		int total = this.getChaves() + this.getMachado() + this.getPocoes();
 		if (total == 5){
 			System.out.println("Mochila Cheia");
 			return false;
@@ -111,5 +119,20 @@ public class Player extends Movimento{
 							".\n POCOES:\t"+getPocoes()+
 							".\n CHAVE:\t\t"+getChaves()+
 							".\n MOCHILA CHEIA?"+!capacidadeMochila());
+	}
+	public void throwAxe(Mapa mapa,String name){
+		int i;
+		if(mapa.getSalas().get(getSalaId()).getContemTroll()>0){
+			for(i=0;i<4;i++){
+				if(mapa.getTrolls().get(i).getName()==name){
+					break;
+				}
+			}
+			if(mapa.getTrolls().get(i).getSalaId()==getSalaId()){
+				mapa.getTrolls().remove(i);
+			}else{
+				System.out.println("Este troll não está nessa sala ou não existe");
+			}
+		}
 	}
 }

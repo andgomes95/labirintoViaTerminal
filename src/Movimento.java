@@ -1,14 +1,7 @@
 import java.util.ArrayList;
 
 public class Movimento extends Carregador{
-	private int salaId;
 	private boolean fim;
-	public int getSalaId() {
-		return salaId;
-	}
-	public void setSalaId(int salaId) {
-		this.salaId = salaId;
-	}
 	public boolean isFim() {
 		return fim;
 	}
@@ -66,9 +59,13 @@ public class Movimento extends Carregador{
 	public void dropMachado(ArrayList<Sala> salas){
 		if(getMachado()>0){
 			setMachado(getMachado()-1);
-			setMachado(salas.get(salaId).machado+1);
+			setMachado(salas.get(getSalaId()).getMachado()+1);
 		}
 	}
 	
-	
+	public void throwAxe(){
+		if (getMachado()>0){
+			setMachado(getMachado()-1);
+		}
+	}
 }

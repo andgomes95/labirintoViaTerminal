@@ -1,5 +1,12 @@
 public class Carregador {
-	protected int ouro;
+	private int salaId;
+	public int getSalaId() {
+		return salaId;
+	}
+	public void setSalaId(int salaId) {
+		this.salaId = salaId;
+	}
+	private int ouro;
 	public int getOuro() {
 		return ouro;
 	}
@@ -7,7 +14,7 @@ public class Carregador {
 		this.ouro = ouro;
 	}
 	
-	protected int diamante;
+	private int diamante;
 	public int getDiamante() {
 		return diamante;
 	}
@@ -15,7 +22,7 @@ public class Carregador {
 		this.diamante = diamante;
 	}
 	
-	protected int machado;
+	private int machado;
 	public int getMachado() {
 		return machado;
 	}
@@ -23,7 +30,7 @@ public class Carregador {
 		this.machado = machado;
 	}
 	
-	protected int pocoes;
+	private int pocoes;
 	public int getPocoes() {
 		return pocoes;
 	}
@@ -31,7 +38,7 @@ public class Carregador {
 		this.pocoes = pocoes;
 	}
 	
-	protected int chaves;
+	private int chaves;
 	public int getChaves() {
 		return chaves;
 	}

@@ -37,7 +37,8 @@ public class Sala extends Carregador{
 		valor = (int)(gerador.nextFloat()*2);
 		setPocoes(valor);
 	}
-	public void viewSala(){
+	public void viewSala(Mapa mapa){
+		int i;
 		System.out.println("Nessa sala há: \n"
 							+ "\n OURO:\t\t"+getOuro()+
 							".\n DIAMANTE:\t"+getDiamante()+
@@ -45,6 +46,14 @@ public class Sala extends Carregador{
 							".\n POCOES:\t"+getPocoes()+
 							".\n CHAVE:\t\t"+getChaves()+
 							".\n TROLL: \t"+getContemTroll());
+		if (getContemTroll()>0){
+			System.out.println("Os trolls na sala são:");
+			for(i=0;i>4;i++){
+				if(mapa.getTrolls().get(i).getSalaId()==getSalaId()){
+					System.out.println(mapa.getTrolls().get(i).getName());
+				}
+			}
+		}
 	}
 	public Porta getPortaA() {
 		return portaA;
