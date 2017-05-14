@@ -1,5 +1,5 @@
 public class Jogo{
-	//MODULARIZAR MAIN
+	
 	public static void main (String[] argc){
 		Player player = new Player();
 		Mapa mapa = new Mapa(20);

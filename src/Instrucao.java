@@ -26,7 +26,8 @@ public class Instrucao {
 			for (i=0;i<4;i++){
 				mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
 			}
-			leitura = Instrucao.leitura();
+			if(player.isFim()==false)
+				leitura = Instrucao.leitura();
 			return leitura;
 		}else{
 			switch(destino){

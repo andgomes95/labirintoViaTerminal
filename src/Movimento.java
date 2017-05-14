@@ -1,14 +1,11 @@
 import java.util.ArrayList;
-
+/***************************************************************************************************************
+ * Classe Movimento: A classe define objeto que tem a capacidade de se movimentar, além de carregar itens, 
+ * habilidade herdada da classe Carregador
+ ***************************************************************************************************************/
 public class Movimento extends Carregador{
-	private boolean fim;
-	public boolean isFim() {
-		return fim;
-	}
-	public void setFim(boolean fim) {
-		this.fim = fim;
-	}
-	/* FLAGS DE RETORNO PARA O METODO moveToDoor:
+	/*O metodo moveToDoor é responsavel pela movimentação entre as salas
+	 *  FLAGS DE RETORNO PARA O METODO moveToDoor:
 	 * 0 - Movimento executado
 	 * 1 - Porta Trancada
 	 * 2 - Porta Inexistente
@@ -19,7 +16,6 @@ public class Movimento extends Carregador{
 		switch(id){
 		case 'a':
 			if(salas.get(getSalaId()).getPortaA().getSalaId() == 1000){
-				this.setFim(true);
 				return 4;
 			}else if((salas.get(getSalaId()).getPortaA().getSalaId() != -1)&&(salas.get(getSalaId()).getPortaA().isPortaTrancada()!= true)){
 				setSalaId(salas.get(getSalaId()).getPortaA().getSalaId());
@@ -51,18 +47,19 @@ public class Movimento extends Carregador{
 			return 3;
 		}
 	}
-	
+	//Metodo responsavel por pegar machados disponiveis nas salas 
 	public void pickUpMachado(ArrayList<Sala> salas){
 		setMachado(salas.get(getSalaId()).getMachado()+getMachado());
 		salas.get(getSalaId()).setMachado(0);
 	}
+	//Metodo responsavel por deixa machados no chão
 	public void dropMachado(ArrayList<Sala> salas){
 		if(getMachado()>0){
 			setMachado(getMachado()-1);
 			setMachado(salas.get(getSalaId()).getMachado()+1);
 		}
 	}
-	
+	//Metodo responsavel por arremessar machados
 	public void throwAxe(){
 		if (getMachado()>0){
 			setMachado(getMachado()-1);

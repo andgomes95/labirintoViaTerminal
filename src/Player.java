@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 
 public class Player extends Movimento{
+	private boolean fim;
+	public boolean isFim() {
+		return fim;
+	}
+	public void setFim(boolean fim) {
+		this.fim = fim;
+	}
 	public int moveToDoor(ArrayList<Sala> salas,char id){
 		int salaOrigem = this.getSalaId();
 		int flag = super.moveToDoor(salas, id);
@@ -14,6 +21,7 @@ public class Player extends Movimento{
 		}else if(flag == 3){
 			System.out.println("Opção inexistente.");
 		}else if (flag == 4){
+			this.setFim(true);
 			salas.get(salaOrigem).setContemPlayer(false);
 			salas.get(this.getSalaId()).setContemPlayer(true);
 		}
