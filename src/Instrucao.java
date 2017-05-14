@@ -20,8 +20,12 @@ public class Instrucao {
 	}
 	public static String[] moveTo(String destino,Player player,Mapa mapa){
 		String[] leitura = new String[3];
+		int i;
 		if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
 			player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
+			for (i=0;i<4;i++){
+				mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+			}
 			leitura = Instrucao.leitura();
 			return leitura;
 		}else{

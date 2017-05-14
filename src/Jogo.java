@@ -43,9 +43,6 @@ public class Jogo{
 				System.out.println("Instrução não conhecida.");
 				leitura = Instrucao.leitura();
 			}
-			for (i=0;i<4;i++){
-				mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
-			}
 		}
 	}
 } 
