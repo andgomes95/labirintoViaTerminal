@@ -1,14 +1,28 @@
 import java.util.ArrayList;
 import java.util.Random;
-
+/***************************************************************************************************************
+ * Classe Troll: Classe que define objetos que movem automaticamente entre as salas, protegendo os recursos da sala
+ * e retirando os recursos do jogador. Herda da classe Movimento a habilidade de se mover
+ ***************************************************************************************************************/
 public class Troll extends Movimento{
-	private String name;
+	//Construtor para troll, que inicializa randomicante a sala em que ele nasce
 	public Troll(ArrayList<Sala> salas,String name,int qntdSalas){
 		Random gerador = new Random();
 		setSalaId(gerador.nextInt(qntdSalas));
 		salas.get(getSalaId()).setContemTroll(salas.get(getSalaId()).getContemTroll()+1);
 		setName(name);
 	}
+	//Atributo que indica o nome do Troll
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	/*Reimplementação do metodo moveToDoor da classe Movimento. Ele escolhe entre mover para umas das 3 salas adjacentes,
+	 ou ficar parado. Se houver um machado ele pega (se não tiver nenhum em mãos), e se houver jogador na sala
+	 ele arremessa machado*/
 	public void moveToDoor(ArrayList<Sala> salas,Player player){
 		int salaOrigem = getSalaId();
 		Random gerador = new Random();
@@ -35,6 +49,8 @@ public class Troll extends Movimento{
 			throwAxe(player);
 		}
 	}
+	/*Reimplementação do metodo throwAxe da classe Movimento. Ele zera o ouro e diamante do jogador, ou remove uma 
+	poção*/
 	public void throwAxe (Player player){
 		if(player.getPocoes()==0){
 			player.setOuro(0);
@@ -45,11 +61,5 @@ public class Troll extends Movimento{
 			System.out.println("O Troll "+getName()+" te acertou e removeu uma poção de vida");
 			player.setPocoes(getPocoes()-1);
 		}
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 }

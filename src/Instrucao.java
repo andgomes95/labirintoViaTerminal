@@ -1,13 +1,16 @@
 import java.util.Scanner;
-
+/***************************************************************************************************************
+ * Classe Instrução: Classe que tem metodos que realiza instruções enviadas pelo terminal
+ ***************************************************************************************************************/
 public class Instrucao {
-	
+	//Metodo que transforma a primeira letra de uma string em char
 	public static char retiraLetra(String nome) {
 	    if (nome != null && nome.length() > 0) {
 	        return nome.charAt(0);
 	    }
 	    return (char) 0;
 	}
+	//Metodo que lê a instrução via terminal
 	public static String[] leitura(){
 		String leituraTerminal = new String();
 		String instrucoes[] = new String[3];
@@ -18,6 +21,7 @@ public class Instrucao {
 		instrucoes=leituraTerminal.split(" ");
 		return instrucoes;
 	}
+	//Metodo que trata instruções de moveTo
 	public static String[] moveTo(String destino,Player player,Mapa mapa){
 		String[] leitura = new String[3];
 		int i;
@@ -93,33 +97,50 @@ public class Instrucao {
 			}
 		}
 	}
-	public static String[] dropItem(String item,Player player,Mapa mapa){
-		String[] leitura = new String[3];
+	//Metodo que trata instruções de largar itens
+	public static void dropItem(String item,Player player,Mapa mapa){
 		switch(item){
 		case "gold":
 			player.dropOuro(mapa.getSalas());
-			leitura = Instrucao.leitura();
-			return leitura;
+			break;
 		case "diamond":
 			player.dropDiamante(mapa.getSalas());
-			leitura = Instrucao.leitura();
-			return leitura;
+			break;
 		case "axe":
 			player.dropMachado(mapa.getSalas());
-			leitura = Instrucao.leitura();
-			return leitura;
+			break;
 		case "potion":
 			player.DropPocoes(mapa.getSalas());
-			leitura = Instrucao.leitura();
-			return leitura;
+			break;
 		case "key":
 			player.dropChave(mapa.getSalas());
-			leitura = Instrucao.leitura();
-			return leitura;
+			break;
 		default:
 			System.out.println("Não existe este item");
-			leitura = Instrucao.leitura();
-			return leitura;
+		}
+	}
+	//Metodo que trata instrução de abrir porta
+	public static void openDoor(Mapa mapa, Player player,String porta){
+		if(porta.equals("a")){
+			player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaA(), mapa.getSalas());
+		}else if(porta.equals("b")){
+			player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaB(), mapa.getSalas());
+		}else if(porta.equals("c")){
+			player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaC(), mapa.getSalas());
+		}else{
+			System.out.println("Porta não existe.");
+		}
+	}
+	//Metodo que trata instrução de fechar porta
+	public static void closeDoor(Mapa mapa,Player player,String porta){
+		if(porta.equals("a")){
+			player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaA(), mapa.getSalas());
+		}else if(porta.equals("b")){
+			player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaB(), mapa.getSalas());
+		}else if(porta.equals("c")){
+			player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaC(), mapa.getSalas());
+		}else{
+			System.out.println("Porta não existe.");
 		}
 	}
 }
