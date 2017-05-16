@@ -1,8 +1,25 @@
 import java.util.ArrayList;
-
+/***************************************************************************************************************
+ * Classe Carregador: A classe que define o mapa inicial do jogo e a disposição de itens e Trolls
+ ***************************************************************************************************************/
 public class Mapa{
+	//Esse atributo é uma lista de salas que contém o mapa
 	private ArrayList<Sala> salas;
+	public ArrayList<Sala> getSalas() {
+		return salas;
+	}
+	public void setSalas(ArrayList<Sala> salas) {
+		this.salas = salas;
+	}
+	//Esse atributo é uma lista de trolls que contém o mapa
 	private ArrayList<Troll> trolls;
+	public ArrayList<Troll> getTrolls() {
+		return trolls;
+	}
+	public void setTrolls(ArrayList<Troll> trolls) {
+		this.trolls = trolls;
+	}
+	//Construtor da classe, que inicializa o mapa com as informações da especificação do jogo
 	public Mapa(int quantidadeSalas){
 		setSalas(new ArrayList<Sala>());
 		for (int i=0;i<quantidadeSalas;i++){
@@ -99,17 +116,4 @@ public class Mapa{
 		getSalas().get(19).getPortaB().setSalaId(-1);
 		getSalas().get(19).getPortaC().setSalaId(-1);
 	}
-	public ArrayList<Sala> getSalas() {
-		return salas;
-	}
-	public void setSalas(ArrayList<Sala> salas) {
-		this.salas = salas;
-	}
-	public ArrayList<Troll> getTrolls() {
-		return trolls;
-	}
-	public void setTrolls(ArrayList<Troll> trolls) {
-		this.trolls = trolls;
-	}
-
 }

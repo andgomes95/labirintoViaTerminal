@@ -150,11 +150,15 @@ public class Player extends Movimento{
 	e elimina o mesmo, se ele estiver na mesma sala que o jogador*/
 	public void throwAxe(Mapa mapa,String name){
 		int i;
+		System.out.println("a");
 		if(mapa.getSalas().get(getSalaId()).getContemTroll()>0){
-			for(i=0;i<4;i++){
+			System.out.println("b");
+			for(i=0;i<mapa.getTrolls().size();i++){
+				System.out.println("c");
 				if(mapa.getTrolls().get(i).getName()==name){
 					break;
 				}
+				System.out.println("d");
 			}
 			if(mapa.getTrolls().get(i).getSalaId()==getSalaId()){
 				mapa.getTrolls().remove(i);

@@ -1,36 +1,183 @@
+import java.util.Scanner;
+/***************************************************************************************************************
+ * Classe Carregador: A classe contém a função principal, além de ter metodos que direcionam o jogo de acordo com
+ * as instruções dadas
+ ***************************************************************************************************************/
 public class Jogo{
+	//Metodo que transforma a primeira letra de uma string em char
+		public static char retiraLetra(String nome) {
+		    if (nome != null && nome.length() > 0) {
+		        return nome.charAt(0);
+		    }
+		    return (char) 0;
+		}
+		//Metodo que lê a instrução via terminal
+		public static String[] leitura(){
+			String leituraTerminal = new String();
+			String instrucoes[] = new String[3];
+			@SuppressWarnings("resource")
+			Scanner ler = new Scanner(System.in);
+			System.out.println("Player >");
+			leituraTerminal = ler.nextLine();
+			instrucoes=leituraTerminal.split(" ");
+			return instrucoes;
+		}
+		//Metodo que trata instruções de moveTo
+		public static String[] moveTo(String destino,Player player,Mapa mapa){
+			String[] leitura = new String[3];
+			int i;
+			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
+				player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
+				for (i=0;i<4;i++){
+					mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+				}
+				if(player.isFim()==false)
+					leitura = leitura();
+				return leitura;
+			}else{
+				switch(destino){
+				case "gold":
+					leitura = leitura();
+					if (leitura[0].equals("pickUp")){
+						if(leitura[1].equals("gold")){
+							player.pickUpOuro(mapa.getSalas());
+						}else {
+							System.out.println("Não é possivel pegar este item: "+leitura[1]);
+						}
+					}
+					leitura = leitura();
+					return leitura;
+				case "diamond":
+					leitura = leitura();
+					if (leitura[0].equals("pickUp")){
+						if(leitura[1].equals("diamond")){
+							player.pickUpDiamante(mapa.getSalas());
+						}else {
+							System.out.println("Não é possivel pegar este item: "+leitura[1]);
+						}
+					}
+					leitura = leitura();
+					return leitura;
+				case "axe":
+					leitura = leitura();
+					if (leitura[0].equals("pickUp")){
+						if(leitura[1].equals("axe")){
+							player.pickUpMachado(mapa.getSalas());
+						}else {
+							System.out.println("Não é possivel pegar este item: "+leitura[1]);
+						}
+					}
+					leitura = leitura();
+					return leitura;
+				case "potion":
+					leitura = leitura();
+					if (leitura[0].equals("pickUp")){
+						if(leitura[1].equals("potion")){
+							player.pickUpPocoes(mapa.getSalas());
+						}else {
+							System.out.println("Não é possivel pegar este item: "+leitura[1]);
+						}
+					}
+					leitura = leitura();
+					return leitura;
+				case "key":
+					leitura = leitura();
+					if (leitura[0].equals("pickUp")){
+						if(leitura[1].equals("key")){
+							player.pickUpChave(mapa.getSalas());
+						}else {
+							System.out.println("Não é possivel pegar este item: "+leitura[1]);
+						}
+					}
+					leitura = leitura();
+					return leitura;
+				default:
+					System.out.println("Não é possivel mover para este local");
+					leitura = leitura();
+					return leitura;
+				}
+			}
+		}
+		//Metodo que trata instruções de largar itens
+		public static void dropItem(String item,Player player,Mapa mapa){
+			switch(item){
+			case "gold":
+				player.dropOuro(mapa.getSalas());
+				break;
+			case "diamond":
+				player.dropDiamante(mapa.getSalas());
+				break;
+			case "axe":
+				player.dropMachado(mapa.getSalas());
+				break;
+			case "potion":
+				player.DropPocoes(mapa.getSalas());
+				break;
+			case "key":
+				player.dropChave(mapa.getSalas());
+				break;
+			default:
+				System.out.println("Não existe este item");
+			}
+		}
+		//Metodo que trata instrução de abrir porta
+		public static void openDoor(Mapa mapa, Player player,String porta){
+			if(porta.equals("a")){
+				player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaA(), mapa.getSalas());
+			}else if(porta.equals("b")){
+				player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaB(), mapa.getSalas());
+			}else if(porta.equals("c")){
+				player.openPorta(mapa.getSalas().get(player.getSalaId()).getPortaC(), mapa.getSalas());
+			}else{
+				System.out.println("Porta não existe.");
+			}
+		}
+		//Metodo que trata instrução de fechar porta
+		public static void closeDoor(Mapa mapa,Player player,String porta){
+			if(porta.equals("a")){
+				player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaA(), mapa.getSalas());
+			}else if(porta.equals("b")){
+				player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaB(), mapa.getSalas());
+			}else if(porta.equals("c")){
+				player.closePorta(mapa.getSalas().get(player.getSalaId()).getPortaC(), mapa.getSalas());
+			}else{
+				System.out.println("Porta não existe.");
+			}
+		}
 	//Função principal, em que o jogo é executado
 	public static void main (String[] argc){
 		Player player = new Player();
 		Mapa mapa = new Mapa(20);
 		String[] leitura = new String[3];
-		leitura = Instrucao.leitura();
+		leitura = leitura();
 		while (player.isFim()==false){
 			if (leitura[0].equals("moveTo")){
-				leitura = Instrucao.moveTo(leitura[1],player,mapa);
+				leitura = moveTo(leitura[1],player,mapa);
 			}else if(leitura[0].equals("drop")){
-				Instrucao.dropItem(leitura[1], player, mapa);
-				leitura = Instrucao.leitura();
+				dropItem(leitura[1], player, mapa);
+				leitura = leitura();
 			}else if (leitura[0].equals("throwAxe")){
 				player.throwAxe(mapa,leitura[1]);
-				leitura = Instrucao.leitura();
+				leitura = leitura();
 			}else if (leitura[0].equals("view")){
 				mapa.getSalas().get(player.getSalaId()).viewSala(mapa);
-				leitura = Instrucao.leitura();
+				leitura = leitura();
 			}else if(leitura[0].equals("openDoor")){
-				Instrucao.openDoor(mapa, player, leitura[1]);
-				leitura = Instrucao.leitura();
+				openDoor(mapa, player, leitura[1]);
+				leitura = leitura();
 			}else if(leitura[0].equals("closeDoor")){
-				Instrucao.closeDoor(mapa,player,leitura[1]);
-				leitura = Instrucao.leitura();
+				closeDoor(mapa,player,leitura[1]);
+				leitura = leitura();
 			}else if(leitura[0].equals("viewKit")){
 				player.viewPlayer();
-				leitura = Instrucao.leitura();
+				leitura = leitura();
 			}
 			else{
 				System.out.println("Instrução não conhecida.");
-				leitura = Instrucao.leitura();
+				leitura = leitura();
 			}
 		}
+		System.out.println("FIM DE JOGO");
+		player.viewPlayer();
 	}
 } 
