@@ -22,81 +22,92 @@ public class Jogo{
 			instrucoes=leituraTerminal.split(" ");
 			return instrucoes;
 		}
+		public static String[] moveToDoor(String destino,Player player,Mapa mapa){
+			String[] leitura = new String[3];
+			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
+				leitura = leitura();
+				if(leitura.length==1&&leitura[0].equals("exit")){
+					player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
+					for (int i=0;i<mapa.getTrolls().size();i++){
+						mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+					}
+					if(player.isFim()==false)
+						leitura = leitura();
+					return leitura;
+				}else{
+					return leitura;
+				}
+			}else{
+				System.out.println("Porta inexistente.");
+				leitura = leitura();
+				return leitura;
+			}
+		}
 		//Metodo que trata instruções de moveTo
 		public static String[] moveTo(String destino,Player player,Mapa mapa){
 			String[] leitura = new String[3];
-			int i;
-			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
-				player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
-				for (i=0;i<mapa.getTrolls().size();i++){
-					mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+			switch(destino){
+			case "gold":
+				leitura = leitura();
+				if (leitura[0].equals("pickUp")){
+					if(leitura[1].equals("gold")){
+						player.pickUpOuro(mapa.getSalas());
+						leitura = leitura();
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
+					}
 				}
-				if(player.isFim()==false)
-					leitura = leitura();
 				return leitura;
-			}else{
-				switch(destino){
-				case "gold":
-					leitura = leitura();
-					if (leitura[0].equals("pickUp")){
-						if(leitura[1].equals("gold")){
-							player.pickUpOuro(mapa.getSalas());
-							leitura = leitura();
-						}else {
-							System.out.println("Não é possivel pegar este item: "+leitura[1]);
-						}
+			case "diamond":
+				leitura = leitura();
+				if (leitura[0].equals("pickUp")){
+					if(leitura[1].equals("diamond")){
+						player.pickUpDiamante(mapa.getSalas());
+						leitura = leitura();
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
 					}
-					return leitura;
-				case "diamond":
-					leitura = leitura();
-					if (leitura[0].equals("pickUp")){
-						if(leitura[1].equals("diamond")){
-							player.pickUpDiamante(mapa.getSalas());
-							leitura = leitura();
-						}else {
-							System.out.println("Não é possivel pegar este item: "+leitura[1]);
-						}
-					}
-					return leitura;
-				case "axe":
-					leitura = leitura();
-					if (leitura[0].equals("pickUp")){
-						if(leitura[1].equals("axe")){
-							player.pickUpMachado(mapa.getSalas());
-							leitura = leitura();
-						}else {
-							System.out.println("Não é possivel pegar este item: "+leitura[1]);
-						}
-					}
-					return leitura;
-				case "potion":
-					leitura = leitura();
-					if (leitura[0].equals("pickUp")){
-						if(leitura[1].equals("potion")){
-							player.pickUpPocoes(mapa.getSalas());
-							leitura = leitura();
-						}else {
-							System.out.println("Não é possivel pegar este item: "+leitura[1]);
-						}
-					}
-					return leitura;
-				case "key":
-					leitura = leitura();
-					if (leitura[0].equals("pickUp")){
-						if(leitura[1].equals("key")){
-							player.pickUpChave(mapa.getSalas());
-							leitura = leitura();
-						}else {
-							System.out.println("Não é possivel pegar este item: "+leitura[1]);
-						}
-					}
-					return leitura;
-				default:
-					System.out.println("Não é possivel mover para este local");
-					leitura = leitura();
-					return leitura;
 				}
+				return leitura;
+			case "axe":
+				leitura = leitura();
+				if (leitura[0].equals("pickUp")){
+					if(leitura[1].equals("axe")){
+						player.pickUpMachado(mapa.getSalas());
+						leitura = leitura();
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
+					}
+				}
+				return leitura;
+			case "potion":
+				leitura = leitura();
+				if (leitura[0].equals("pickUp")){
+					if(leitura[1].equals("potion")){
+						player.pickUpPocoes(mapa.getSalas());
+						leitura = leitura();
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
+					}
+				}
+				return leitura;
+			case "key":
+				leitura = leitura();
+				if (leitura[0].equals("pickUp")){
+					if(leitura[1].equals("key")){
+						player.pickUpChave(mapa.getSalas());
+						leitura = leitura();
+					}else {
+						System.out.println("Não é possivel pegar este item: "+leitura[1]);
+					}
+				}
+				return leitura;
+			default:
+				System.out.println("Não é possivel mover para este local");
+				leitura = leitura();
+				return leitura;
 			}
+		
 		}
 		//Metodo que trata instruções de largar itens
 		public static void dropItem(String item,Player player,Mapa mapa){
@@ -152,7 +163,16 @@ public class Jogo{
 		leitura = leitura();
 		while (player.isFim()==false){
 			if (leitura[0].equals("moveTo")){
-				leitura = moveTo(leitura[1],player,mapa);
+				if(leitura.length==3){
+					if(leitura[2].equals("door"))
+						leitura = moveToDoor(leitura[1],player,mapa);
+					else{
+						System.out.println("Instrução desconhecida");
+						leitura = leitura();
+					}
+				}else if(leitura.length==2){
+					leitura = moveTo(leitura[1],player,mapa);
+				}
 			}else if(leitura[0].equals("drop")){
 				dropItem(leitura[1], player, mapa);
 				leitura = leitura();

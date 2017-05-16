@@ -57,9 +57,9 @@ public class Sala extends Carregador{
 		valor = gerador.nextInt(100);
 		setDiamante(valor);
 		//Função random para gerar 0 ou 1, com mais chance de dar 0;
-		valor = (int)(gerador.nextFloat()*50);
+		valor = (int)(gerador.nextFloat()*1.5);
 		setMachado(valor);
-		valor = (int)(gerador.nextFloat()*50);
+		valor = (int)(gerador.nextFloat()*1.5);
 		setPocoes(valor);
 	}
 	//Este metodo mostra itens disponiveis na sala, se há trolls, e quais trolls estão na sala
