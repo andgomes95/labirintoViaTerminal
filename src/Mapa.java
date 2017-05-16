@@ -116,9 +116,4 @@ public class Mapa{
 		getSalas().get(19).getPortaB().setSalaId(-1);
 		getSalas().get(19).getPortaC().setSalaId(-1);
 	}
-	public void viewTrolls(){
-		for(int i=0;i<getTrolls().size();i++){
-			System.out.println(getTrolls().get(i).getName());
-		}
-	}
 }

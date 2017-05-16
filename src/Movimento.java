@@ -56,7 +56,7 @@ public class Movimento extends Carregador{
 	public void dropMachado(ArrayList<Sala> salas){
 		if(getMachado()>0){
 			setMachado(getMachado()-1);
-			setMachado(salas.get(getSalaId()).getMachado()+1);
+			salas.get(getSalaId()).setMachado(salas.get(getSalaId()).getMachado()+1);
 		}
 	}
 	//Metodo responsavel por arremessar machados

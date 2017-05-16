@@ -111,7 +111,7 @@ public class Jogo{
 				player.dropMachado(mapa.getSalas());
 				break;
 			case "potion":
-				player.DropPocoes(mapa.getSalas());
+				player.dropPocoes(mapa.getSalas());
 				break;
 			case "key":
 				player.dropChave(mapa.getSalas());
@@ -158,7 +158,6 @@ public class Jogo{
 				leitura = leitura();
 			}else if (leitura[0].equals("throwAxe")){
 				player.throwAxe(mapa,leitura[1]);
-				mapa.viewTrolls();
 				leitura = leitura();
 			}else if (leitura[0].equals("view")){
 				mapa.getSalas().get(player.getSalaId()).viewSala(mapa);

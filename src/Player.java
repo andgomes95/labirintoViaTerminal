@@ -107,7 +107,7 @@ public class Player extends Movimento{
 		}
 	}
 	//Metodo para soltar poção na sala
-	public void DropPocoes(ArrayList<Sala> salas){
+	public void dropPocoes(ArrayList<Sala> salas){
 		if(getPocoes()>0){
 			setPocoes(getPocoes()-1);
 			salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()+1);

@@ -57,9 +57,9 @@ public class Sala extends Carregador{
 		valor = gerador.nextInt(100);
 		setDiamante(valor);
 		//Função random para gerar 0 ou 1, com mais chance de dar 0;
-		valor = (int)(gerador.nextFloat()*3);
+		valor = (int)(gerador.nextFloat()*50);
 		setMachado(valor);
-		valor = (int)(gerador.nextFloat()*3);
+		valor = (int)(gerador.nextFloat()*50);
 		setPocoes(valor);
 	}
 	//Este metodo mostra itens disponiveis na sala, se há trolls, e quais trolls estão na sala
@@ -74,7 +74,7 @@ public class Sala extends Carregador{
 							".\n TROLL: \t"+getContemTroll());
 		if (getContemTroll()>0){
 			System.out.println("Os trolls na sala são:");
-			for(i=0;i<4;i++){
+			for(i=0;i<mapa.getTrolls().size();i++){
 				if(mapa.getTrolls().get(i).getSalaId()==(getSalaId())){
 					System.out.println(mapa.getTrolls().get(i).getName());
 				}
