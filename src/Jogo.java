@@ -28,7 +28,7 @@ public class Jogo{
 			int i;
 			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
 				player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
-				for (i=0;i<4;i++){
+				for (i=0;i<mapa.getTrolls().size();i++){
 					mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
 				}
 				if(player.isFim()==false)
@@ -41,55 +41,55 @@ public class Jogo{
 					if (leitura[0].equals("pickUp")){
 						if(leitura[1].equals("gold")){
 							player.pickUpOuro(mapa.getSalas());
+							leitura = leitura();
 						}else {
 							System.out.println("Não é possivel pegar este item: "+leitura[1]);
 						}
 					}
-					leitura = leitura();
 					return leitura;
 				case "diamond":
 					leitura = leitura();
 					if (leitura[0].equals("pickUp")){
 						if(leitura[1].equals("diamond")){
 							player.pickUpDiamante(mapa.getSalas());
+							leitura = leitura();
 						}else {
 							System.out.println("Não é possivel pegar este item: "+leitura[1]);
 						}
 					}
-					leitura = leitura();
 					return leitura;
 				case "axe":
 					leitura = leitura();
 					if (leitura[0].equals("pickUp")){
 						if(leitura[1].equals("axe")){
 							player.pickUpMachado(mapa.getSalas());
+							leitura = leitura();
 						}else {
 							System.out.println("Não é possivel pegar este item: "+leitura[1]);
 						}
 					}
-					leitura = leitura();
 					return leitura;
 				case "potion":
 					leitura = leitura();
 					if (leitura[0].equals("pickUp")){
 						if(leitura[1].equals("potion")){
 							player.pickUpPocoes(mapa.getSalas());
+							leitura = leitura();
 						}else {
 							System.out.println("Não é possivel pegar este item: "+leitura[1]);
 						}
 					}
-					leitura = leitura();
 					return leitura;
 				case "key":
 					leitura = leitura();
 					if (leitura[0].equals("pickUp")){
 						if(leitura[1].equals("key")){
 							player.pickUpChave(mapa.getSalas());
+							leitura = leitura();
 						}else {
 							System.out.println("Não é possivel pegar este item: "+leitura[1]);
 						}
 					}
-					leitura = leitura();
 					return leitura;
 				default:
 					System.out.println("Não é possivel mover para este local");
@@ -158,6 +158,7 @@ public class Jogo{
 				leitura = leitura();
 			}else if (leitura[0].equals("throwAxe")){
 				player.throwAxe(mapa,leitura[1]);
+				mapa.viewTrolls();
 				leitura = leitura();
 			}else if (leitura[0].equals("view")){
 				mapa.getSalas().get(player.getSalaId()).viewSala(mapa);

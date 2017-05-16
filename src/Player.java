@@ -153,19 +153,15 @@ public class Player extends Movimento{
 	/*Reimplementação do metodo throwAxe da classe Movimento. Esse metodo recebe o nome do troll a ser acertado
 	e elimina o mesmo, se ele estiver na mesma sala que o jogador*/
 	public void throwAxe(Mapa mapa,String name){
-		int i;
-		System.out.println("a");
+		int i,aux=-1;
 		if(mapa.getSalas().get(getSalaId()).getContemTroll()>0){
-			System.out.println("b");
 			for(i=0;i<mapa.getTrolls().size();i++){
-				System.out.println("c");
-				if(mapa.getTrolls().get(i).getName()==name){
-					break;
+				if(mapa.getTrolls().get(i).getName().equals(name)){
+					aux=i;
 				}
-				System.out.println("d");
 			}
-			if(mapa.getTrolls().get(i).getSalaId()==getSalaId()){
-				mapa.getTrolls().remove(i);
+			if(mapa.getTrolls().get(aux).getSalaId()==getSalaId()&&aux!=-1){
+				mapa.getTrolls().remove(aux);
 			}else{
 				System.out.println("Este troll não está nessa sala ou não existe");
 			}
