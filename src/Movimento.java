@@ -49,8 +49,8 @@ public class Movimento extends Carregador{
 	}
 	//Metodo responsavel por pegar machados disponiveis nas salas 
 	public void pickUpMachado(ArrayList<Sala> salas){
-		setMachado(salas.get(getSalaId()).getMachado()+getMachado());
-		salas.get(getSalaId()).setMachado(0);
+		setMachado(getMachado()+1);
+		salas.get(getSalaId()).setMachado(salas.get(getSalaId()).getMachado()-1);
 	}
 	//Metodo responsavel por deixa machados no chão
 	public void dropMachado(ArrayList<Sala> salas){

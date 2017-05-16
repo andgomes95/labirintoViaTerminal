@@ -70,8 +70,10 @@ public class Player extends Movimento{
 	}
 	//Metodo para pegar chave na sala
 	public void pickUpChave(ArrayList<Sala> salas){
-		setChaves(salas.get(getSalaId()).getChaves()+getChaves());
-		salas.get(getSalaId()).setChaves(0);
+		if(capacidadeMochila()==true){
+			setChaves(getChaves()+1);
+			salas.get(getSalaId()).setChaves(salas.get(getSalaId()).getChaves()-1);
+		}
 	}
 	//Metodo para deixar chave na sala
 	public void dropChave(ArrayList<Sala> salas){
@@ -99,8 +101,10 @@ public class Player extends Movimento{
 	}
 	//Metodo para pegar poções na sala
 	public void pickUpPocoes(ArrayList<Sala> salas){
-		setPocoes(salas.get(getSalaId()).getPocoes()+getPocoes());
-		salas.get(getSalaId()).setPocoes(0);
+		if(capacidadeMochila()==true){
+			setPocoes(getPocoes()+1);
+			salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()-1);
+		}
 	}
 	//Metodo para soltar poção na sala
 	public void DropPocoes(ArrayList<Sala> salas){
