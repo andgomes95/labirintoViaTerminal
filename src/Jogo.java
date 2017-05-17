@@ -22,6 +22,7 @@ public class Jogo{
 			instrucoes=leituraTerminal.split(" ");
 			return instrucoes;
 		}
+		//Metodo que trata instruções de moveTo para alguma porta
 		public static String[] moveToDoor(String destino,Player player,Mapa mapa){
 			String[] leitura = new String[3];
 			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
@@ -43,7 +44,7 @@ public class Jogo{
 				return leitura;
 			}
 		}
-		//Metodo que trata instruções de moveTo
+		//Metodo que trata instruções de moveTo, sem ser trocas de salas
 		public static String[] moveTo(String destino,Player player,Mapa mapa){
 			String[] leitura = new String[3];
 			switch(destino){
@@ -173,26 +174,34 @@ public class Jogo{
 				}else if(leitura.length==2){
 					leitura = moveTo(leitura[1],player,mapa);
 				}
-			}else if(leitura[0].equals("drop")){
-				dropItem(leitura[1], player, mapa);
-				leitura = leitura();
-			}else if (leitura[0].equals("throwAxe")){
-				player.throwAxe(mapa,leitura[1]);
-				leitura = leitura();
-			}else if (leitura[0].equals("view")){
-				mapa.getSalas().get(player.getSalaId()).viewSala(mapa);
-				leitura = leitura();
-			}else if(leitura[0].equals("openDoor")){
-				openDoor(mapa, player, leitura[1]);
-				leitura = leitura();
-			}else if(leitura[0].equals("closeDoor")){
-				closeDoor(mapa,player,leitura[1]);
-				leitura = leitura();
-			}else if(leitura[0].equals("viewKit")){
-				player.viewPlayer();
-				leitura = leitura();
-			}
-			else{
+			}else if(leitura.length==2){
+				if(leitura[0].equals("drop")){
+					dropItem(leitura[1], player, mapa);
+					leitura = leitura();
+				}else if (leitura[0].equals("throwAxe")){
+					player.throwAxe(mapa,leitura[1]);
+					leitura = leitura();
+				}else if(leitura[0].equals("openDoor")){
+					openDoor(mapa, player, leitura[1]);
+					leitura = leitura();
+				}else if(leitura[0].equals("closeDoor")){
+					closeDoor(mapa,player,leitura[1]);
+					leitura = leitura();
+				}else{
+					System.out.println("Instrução não conhecida");
+				}
+			}else if(leitura.length==1){
+				if (leitura[0].equals("view")){
+					mapa.getSalas().get(player.getSalaId()).viewSala(mapa);
+					leitura = leitura();
+				}else if(leitura[0].equals("viewKit")){
+					player.viewPlayer();
+					leitura = leitura();
+				}else{
+					System.out.println("Instrução não conhecida");
+					leitura = leitura();
+				}
+			}else{
 				System.out.println("Instrução não conhecida.");
 				leitura = leitura();
 			}

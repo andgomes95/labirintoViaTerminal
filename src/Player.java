@@ -71,8 +71,10 @@ public class Player extends Movimento{
 	//Metodo para pegar chave na sala
 	public void pickUpChave(ArrayList<Sala> salas){
 		if(capacidadeMochila()==true){
-			setChaves(getChaves()+1);
-			salas.get(getSalaId()).setChaves(salas.get(getSalaId()).getChaves()-1);
+			if(salas.get(getSalaId()).getChaves()>0){
+				setChaves(getChaves()+1);
+				salas.get(getSalaId()).setChaves(salas.get(getSalaId()).getChaves()-1);
+			}
 		}
 	}
 	//Metodo para deixar chave na sala
@@ -102,8 +104,10 @@ public class Player extends Movimento{
 	//Metodo para pegar poções na sala
 	public void pickUpPocoes(ArrayList<Sala> salas){
 		if(capacidadeMochila()==true){
-			setPocoes(getPocoes()+1);
-			salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()-1);
+			if(salas.get(getSalaId()).getPocoes()>0){
+				setPocoes(getPocoes()+1);
+				salas.get(getSalaId()).setPocoes(salas.get(getSalaId()).getPocoes()-1);
+			}
 		}
 	}
 	//Metodo para soltar poção na sala
@@ -161,7 +165,10 @@ public class Player extends Movimento{
 				}
 			}
 			if(mapa.getTrolls().get(aux).getSalaId()==getSalaId()&&aux!=-1){
+				mapa.getSalas().get(getSalaId()).setContemTroll(mapa.getSalas().get(getSalaId()).getContemTroll()-1);
 				mapa.getTrolls().remove(aux);
+				super.throwAxe();
+				
 			}else{
 				System.out.println("Este troll não está nessa sala ou não existe");
 			}

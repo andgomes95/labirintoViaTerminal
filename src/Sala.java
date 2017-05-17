@@ -42,6 +42,7 @@ public class Sala extends Carregador{
 	public void setPortaC(Porta portaC) {
 		this.portaC = portaC;
 	}
+	
 	//Construtor inicia a sala, criando as portas da sua sala
 	public Sala(int id){
 		setSalaId(id);
