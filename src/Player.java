@@ -121,7 +121,7 @@ public class Player extends Movimento{
 	public void closePorta(Porta porta,ArrayList<Sala> salas){
 		if(porta.isPortaTrancada()==true){
 			System.out.println("A porta está fechada");
-		}else if (porta.isPortaTrancada()==false){
+		}else if (porta.isPortaTrancada()==false&&getPocoes()>0){
 			setPocoes(getPocoes()-1);
 			porta.setPortaTrancada(true);
 			if(salas.get(porta.getSalaId()).getPortaA().getSalaId()==getSalaId()){
@@ -131,6 +131,8 @@ public class Player extends Movimento{
 			}else if(salas.get(porta.getSalaId()).getPortaC().getSalaId()==getSalaId()){
 				salas.get(porta.getSalaId()).getPortaC().setPortaTrancada(true);
 			}
+		}else{
+			System.out.println("Você não possui poções para fechar a porta");
 		}
 	}
 	

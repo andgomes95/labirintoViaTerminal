@@ -25,15 +25,26 @@ public class Jogo{
 		//Metodo que trata instruções de moveTo para alguma porta
 		public static String[] moveToDoor(String destino,Player player,Mapa mapa){
 			String[] leitura = new String[3];
+			int origem = player.getSalaId();
 			if(destino.equals("a")||destino.equals("b")||destino.equals("c")){
 				leitura = leitura();
 				if(leitura.length==1&&leitura[0].equals("exit")){
 					player.moveToDoor(mapa.getSalas(), retiraLetra(destino));
-					for (int i=0;i<mapa.getTrolls().size();i++){
-						mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
-					}
-					if(player.isFim()==false)
+					if(origem != player.getSalaId()){
+						for (int i=0;i<mapa.getTrolls().size();i++){
+							mapa.getTrolls().get(i).moveToDoor(mapa.getSalas(),player);
+						}
+					}if(player.isFim()==false)
 						leitura = leitura();
+					return leitura;
+				}else if(leitura.length==2){
+					if(leitura[0].equals("openDoor")){
+						openDoor(mapa, player, leitura[1]);
+						return leitura = leitura();
+					}else if(leitura[0].equals("closeDoor")){
+						closeDoor(mapa,player,leitura[1]);
+						return leitura = leitura();
+					}
 					return leitura;
 				}else{
 					return leitura;
@@ -180,12 +191,6 @@ public class Jogo{
 					leitura = leitura();
 				}else if (leitura[0].equals("throwAxe")){
 					player.throwAxe(mapa,leitura[1]);
-					leitura = leitura();
-				}else if(leitura[0].equals("openDoor")){
-					openDoor(mapa, player, leitura[1]);
-					leitura = leitura();
-				}else if(leitura[0].equals("closeDoor")){
-					closeDoor(mapa,player,leitura[1]);
 					leitura = leitura();
 				}else{
 					System.out.println("Instrução não conhecida");

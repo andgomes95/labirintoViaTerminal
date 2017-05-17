@@ -48,6 +48,7 @@ public class Troll extends Movimento{
 		if (salas.get(getSalaId()).isContemPlayer()==true&&getMachado()>0){
 			throwAxe(player);
 		}
+		System.out.println(name +" - "+ getSalaId());
 	}
 	/*Reimplementação do metodo throwAxe da classe Movimento. Ele zera o ouro e diamante do jogador, ou remove uma 
 	poção*/
