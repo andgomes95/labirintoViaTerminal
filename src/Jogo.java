@@ -189,6 +189,7 @@ public class Jogo{
 					leitura = leitura();
 				}else{
 					System.out.println("Instrução não conhecida");
+					leitura = leitura();
 				}
 			}else if(leitura.length==1){
 				if (leitura[0].equals("view")){
