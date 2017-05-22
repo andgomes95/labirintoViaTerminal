@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /***************************************************************************************************************
- * Classe Carregador: A classe contém a função principal, além de ter metodos que direcionam o jogo de acordo com
+ * Classe Jogo: A classe contém a função principal, além de ter metodos que direcionam o jogo de acordo com
  * as instruções dadas
  ***************************************************************************************************************/
 public class Jogo{

@@ -1,6 +1,6 @@
 import java.util.Random;
 /***************************************************************************************************************
- * Classe Porta: A classe tenta fazer uma abstração de uma sala. Esta classe herda a capacidade de carregar itens
+ * Classe Sala: A classe tenta fazer uma abstração de uma sala. Esta classe herda a capacidade de carregar itens
  * da classe Carregador
  ***************************************************************************************************************/
 public class Sala extends Carregador{
@@ -57,10 +57,10 @@ public class Sala extends Carregador{
 		setOuro(valor);
 		valor = gerador.nextInt(100);
 		setDiamante(valor);
-		//Função random para gerar 0 ou 1, com mais chance de dar 0;
-		valor = (int)(gerador.nextFloat()*1.5);
+		//Função random para gerar 0, 1 ou 2, sendo raramente 2, com mais chance de dar 0 ou 1;
+		valor = (int)(gerador.nextFloat()*2.1);
 		setMachado(valor);
-		valor = (int)(gerador.nextFloat()*1.5);
+		valor = (int)(gerador.nextFloat()*2.1);
 		setPocoes(valor);
 	}
 	//Este metodo mostra itens disponiveis na sala, se há trolls, e quais trolls estão na sala
