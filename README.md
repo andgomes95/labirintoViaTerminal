@@ -48,3 +48,19 @@ A classe define objetos que possui metodos que implementam movimentos e ações 
 - **viewPlayer:** metodo mostra no terminal o que possui na mochila do jogador.
 - **throwAxe:** A função recebe o nome do troll que você deseja arremessar o machado. Se o troll estiver na sala, é consumido um machado da sua mochila (se houver) e o troll é eliminado da lista de Trolls.
 
+### Troll
+
+A classe define entidades que movem automaticamente entre as salas, protegendo recursos da sala e retirando-os do player. Ele possui o atributo nome e seu respectivo get e set. Além disto, a classe possui os seguintes métodos:
+- **Construtor:** Seta a sala que o troll está, aleatoriamente, além de atribuir um nome a ele.
+- **moveToDoor:** Reimplementa moveToDoor de Movimento. Ele escolhe entre se mover para uma das portas adjacentes ou ficar parado. A função só termina se houver sala para a respectiva porta, ou ir para opção parado.
+- **throwAxe:** Reimplementa throwAxe de Movimento. Se o player na sala não houver poções, zera o ouro e os diamantes do jogador e retira um machado do troll. Retorna no terminal o resultado para que o jogador veja.
+
+### Mapa
+
+A classe define o mapa inicial do jogo e a disposição de Trolls. A classe contém duas ArrayLists de atributos: uma guardando a quantidade de salas e outra guardando a quantidade de trolls. O construtor da classe instância as salas e trolls e seta atributos especicados previamente das salas.
+
+
+### Jogo
+
+%%%Falta classes: MAPA, JOGO, TROLL
+%%%Falta explicar: Funcionamento do jogo

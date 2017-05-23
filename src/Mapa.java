@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 /***************************************************************************************************************
- * Classe Carregador: A classe que define o mapa inicial do jogo e a disposição de itens e Trolls
+ * Classe Mapa: A classe que define o mapa inicial do jogo e a disposição de itens e Trolls
  ***************************************************************************************************************/
 public class Mapa{
 	//Esse atributo é uma lista de salas que contém o mapa
