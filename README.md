@@ -62,5 +62,17 @@ A classe define o mapa inicial do jogo e a disposição de Trolls. A classe cont
 
 ### Jogo
 
-%%%Falta classes: MAPA, JOGO, TROLL
+A classe contém a função principal, além de metodos que direcionam o jogo de acordo com a instrução do jogador. Os metodos presentes na classe são:
+- **retiraLetra:** Transforma a primeira letra da string em char.
+- **leitura:** Função que executa a leitura das instruções no terminal.
+- **moveToDoor:** Trata todas instruções que começam por *moveToDoor*, indo para os respectivos metodos ou aguardando instruções que funcionam em sequencia a moveToDoor.
+- **moveTo:** Trata todas instruções que começam com *moveTo*, indo para os respectivos metodos ou aguardando instruções que funcionam em sequencia.
+- **dropItem:** Trata as instruções iniciadas por *drop*, indo para os respectivos metodos.
+- **openDoor:** Trata a instrução *openDoor*.
+- **closeDoor:** Trata a instrução *closeDoor*.
+- **main:** A main instância Mapa e Player, lê a primeira instrução, e realiza um laço que vai para o metodo que trata a instrução e realiza uma nova leitura. O loop finaliza se o jogador chegar ao final do jogo. Após isto, o programa imprime o que está na mochila do jogador e finaliza.
+
+- 
+
+%%%Falta classes: JOGO
 %%%Falta explicar: Funcionamento do jogo
