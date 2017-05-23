@@ -89,20 +89,28 @@ O jogador começa na sala 1, e para interagir com o ambiente, ele precisa entrar
 - **moveTo x door:** Instrução faz com que o jogador mova até a porta. No lugar do x podem ser utilizadas as seguintes opções: *a,b,c*
 - **drop x:** Instrução faz com que o jogador despejar o item desejado na sala. No lugar de x podem ser utilizadas as seguintes opções: *gold,diamond,potion,key,axe*
 - **pickUp x:** Instrução que faz pegar item desejado. No lugar de x podem ser utilizados as seguintes opções: *gold,diamond,potion,key,axe*. A instrução pickUp só funciona se tiver um moveTo para o item. 
+
 *Ex:*
 		player> moveTo gold
 		player> pickUp gold
+
 - **exit:** Instrução que faz sair da sala. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+
 *Ex:* 
 		player>	moveTo a door
 		exit
+
 - **openDoor x:** Instrução que faz abrir uma porta, se houver chave. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+
 *Ex:* player>	
 		moveTo a door
 		openDoor a
-- **closeDoor x:**Instrução que faz fecha uma porta, se houver poção. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+
+- **closeDoor x:** Instrução que faz fecha uma porta, se houver poção. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+
 *Ex:* player>	
 		moveTo a door
 		closeDoor a
+
 - **view:** Imprime no terminal os itens que possuem na sala, se há troll e se houver, o nome dos trolls presentes
 - **viewKit:** Imprime no terminal os itens que o jogador possui na mochila, e se a mochila está cheia. A mochila é considerada cheia se a soma de chaves, machados e poções
