@@ -92,24 +92,28 @@ O jogador começa na sala 1, e para interagir com o ambiente, ele precisa entrar
 
 *Ex:*
 		player> moveTo gold
+
 		player> pickUp gold
 
 - **exit:** Instrução que faz sair da sala. É necessario um moveTo x door antes, para especificar para qual sala será movido:
 
 *Ex:* 
 		player>	moveTo a door
+
 		exit
 
 - **openDoor x:** Instrução que faz abrir uma porta, se houver chave. É necessario um moveTo x door antes, para especificar para qual sala será movido:
 
 *Ex:* player>	
 		moveTo a door
+
 		openDoor a
 
 - **closeDoor x:** Instrução que faz fecha uma porta, se houver poção. É necessario um moveTo x door antes, para especificar para qual sala será movido:
 
 *Ex:* player>	
 		moveTo a door
+
 		closeDoor a
 
 - **view:** Imprime no terminal os itens que possuem na sala, se há troll e se houver, o nome dos trolls presentes
