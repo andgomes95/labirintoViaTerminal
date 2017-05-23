@@ -72,7 +72,37 @@ A classe contém a função principal, além de metodos que direcionam o jogo de
 - **closeDoor:** Trata a instrução *closeDoor*.
 - **main:** A main instância Mapa e Player, lê a primeira instrução, e realiza um laço que vai para o metodo que trata a instrução e realiza uma nova leitura. O loop finaliza se o jogador chegar ao final do jogo. Após isto, o programa imprime o que está na mochila do jogador e finaliza.
 
-- 
 
-%%%Falta classes: JOGO
-%%%Falta explicar: Funcionamento do jogo
+# Funcionamento do jogo
+
+O jogo consiste em um labirinto composto de 20 salas, que podem conter itens. Há 5 tipos de itens na mochila: Ouro, diamantes, poções, chaves e machados. Há dois tipos de entidades que podem transitar entre as salas: Trolls e Players.
+
+- **Ouro e Diamante** : Recursos que tem como objetivo coletar. Seu valor na mochila pode ser ilimitado. Não é possivel coletar em uma sala com Trolls. Se um Troll acertar o jogador com o machado, este recurso some da mochila.
+- **Machados** : Recurso de suporte. Pode ser coletado tanto para o jogador quanto para os troll. Se o Troll arremessar machado no jogador, o player perde ouro e diamante. Se o jogador jogar o machado no troll, o Troll morre. Se arremessado, o machado é inutilizado.
+- **Poções** : Mecanismo de defesa, apenas pode ser coletado pelo jogador. Se um troll arremessar um machado em um jogador com poção, a poção é consumida e o jogador mantem o ouro e o diamante. Pode ser utilizada também para trancar uma porta.
+- **Chaves** : Mecanismo que retira a obstrução em portas trancadas. 
+
+### Instruções para movimentação do Jogador
+
+O jogador começa na sala 1, e para interagir com o ambiente, ele precisa entrar de realizar instruções. As instruções possiveis serão listadas abaixo:
+- **moveTo x:** Instrução que faz com que o jogador se mova até um objeto. No lugar do x podem ser utilizados *gold,diamond,potion,key,axe*
+- **moveTo x door:** Instrução faz com que o jogador mova até a porta. No lugar do x podem ser utilizadas as seguintes opções: *a,b,c*
+- **drop x:** Instrução faz com que o jogador despejar o item desejado na sala. No lugar de x podem ser utilizadas as seguintes opções: *gold,diamond,potion,key,axe*
+- **pickUp x:** Instrução que faz pegar item desejado. No lugar de x podem ser utilizados as seguintes opções: *gold,diamond,potion,key,axe*. A instrução pickUp só funciona se tiver um moveTo para o item. 
+*Ex:*
+		player> moveTo gold
+		player> pickUp gold
+- **exit:** Instrução que faz sair da sala. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+*Ex:* 
+		player>	moveTo a door
+		exit
+- **openDoor x:** Instrução que faz abrir uma porta, se houver chave. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+*Ex:* player>	
+		moveTo a door
+		openDoor a
+- **closeDoor x:**Instrução que faz fecha uma porta, se houver poção. É necessario um moveTo x door antes, para especificar para qual sala será movido:
+*Ex:* player>	
+		moveTo a door
+		closeDoor a
+- **view:** Imprime no terminal os itens que possuem na sala, se há troll e se houver, o nome dos trolls presentes
+- **viewKit:** Imprime no terminal os itens que o jogador possui na mochila, e se a mochila está cheia. A mochila é considerada cheia se a soma de chaves, machados e poções
